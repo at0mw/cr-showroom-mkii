@@ -81,14 +81,23 @@
       transition: opacity 0.2s ease-in-out;
     }
 
-    .surface.expanded .experiment {
-      animation: delayedChange 0.3s ease 0.7s forwards; 
+    .experiment {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       margin: auto;
-      backdrop-filter: $surfaceBlur;         
+      backdrop-filter: $surfaceBlur;   
+      // position: relative;
+      // bottom: 0;      
+    }
+
+    .surface.expanded .experiment {
+      animation: delayedChange 0.3s ease 0.7s forwards; 
+      // display: flex;
+      // flex-direction: column;
+      // align-items: center;
+      // justify-content: center;
     }
 
     @keyframes delayedChange {
