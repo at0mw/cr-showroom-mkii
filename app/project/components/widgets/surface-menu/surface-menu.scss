@@ -1,0 +1,128 @@
+@import '../../CustomStyle/variables';
+
+.surface-menu-widget {
+    height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .surface {
+      font-size: 24px;
+      cursor: pointer;
+      box-sizing: border-box;
+      color: $onSurfaceColour;
+      transition: flex 0.5s;
+      height: 100%;
+      margin: 0.5rem;
+      min-width: 5vw;
+      border-radius: $standardElementBorderRadius;      
+      box-shadow: $onBackgroundShadow;
+      background-color: $surfaceColour;
+      backdrop-filter: $surfaceBlur;
+    }
+    
+    .expanded {
+      flex: 2;
+    }
+    
+    .surface-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .surface.expanded .surface-icon {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background-color: $elevatedSurfaceColour; 
+      backdrop-filter: $surfaceBlur;  
+      box-shadow: $onSurfaceShadow;
+      z-index: 10;
+      position: absolute;
+      top: 0.5rem;
+      transition-delay: 0.5s;
+    }
+    
+    .surface-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 85%;
+      width: 5vw;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s, height 0.2s ease;
+    }
+
+    .surface.expanded .surface-card {
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+      transition: opacity 1.4s, visibility 1s, height 0.2s ease;
+      transition-delay: 0.5s;
+      height: 100%;
+    }
+
+    .surface .content-container {
+      visibility: hidden;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .surface.expanded {        
+      transition: opacity 0.5s, visibility 0.5s;
+      z-index: 2;
+    }
+
+    .surface.expanded .content-container {
+      visibility: visible;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .surface.expanded .experiment {
+      animation: delayedChange 0.3s ease 0.7s forwards; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      backdrop-filter: $surfaceBlur;         
+    }
+
+    @keyframes delayedChange {
+      0% {
+        box-shadow: none;
+        position: relative;
+        bottom: 0;
+      }
+      100% {
+        height: 40px;
+        width: 76px;
+        box-shadow: $onSurfaceInsetShadow;
+        position: relative;
+        bottom: 2.5rem;
+        border-radius: 40px 40px 0 0;
+        opacity: 1;
+      }
+    }
+
+    .sharing-notification-badge {
+      position: absolute;
+      bottom: 2vmin;
+      right: 1.5vmin;
+      width: 1vmin;
+      height: 1vmin;
+      background-color: red;
+      border-radius: 50%;
+      box-shadow: 0 5px 12px rgb(255, 0, 0);
+      transition: opacity 2s;
+      display: none;
+    }
+
+    .expanded .sharing-notification-badge {
+      transition: opacity 0s;
+      opacity: 0;
+    }
+}

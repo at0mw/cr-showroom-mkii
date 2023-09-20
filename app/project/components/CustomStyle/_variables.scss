@@ -1,0 +1,41 @@
+// Area Colours
+$primaryColour: #353b48;//#FAFAFF; /* This is colour for main navigation etc... */
+$primaryVariant: #17BEBB; /* Backup colour for main navigation */
+$secondaryColour: #FAFAFF; //#F28482 /* Highlight colour for main navigation, buttons and floating actions */
+$secondaryVariant: #5FB49C;//#FF6F59; /* Backup Highlight colour for main navigation, buttons and floating actions */
+$errorColour: #ff2200;
+
+$backgroundColour: #333333; //#FAFAFF
+$surfaceColour: #222222;
+$elevatedSurfaceColour: darken($surfaceColour, 5%);
+
+$surfaceBlur: blur(4px);
+//$navBarColour: #353b48;
+
+// Colours On Areas
+$onPrimaryColour: #FAFAFF;
+$onSecondaryColour: #000000;
+$onSecondaryVariantColour: #FFFFFF;
+$onBackgroundColour: #FFFFFF;
+$onSurfaceColour: #FFFFFF;
+$onErrorColour: #000000;
+
+// Shadows
+$onBackgroundShadow: 5px 5px 10px #181818, -5px -5px 10px #2c2c2c;
+$onSurfaceShadow: 4px 4px 12px #242424, -4px -4px 12px #4242427c;
+$onSurfacePressedShadow: inset 2px 2px 6px #242424, inset -2px -2px 6px #424242;
+$onForegroundShadow: 7px 5px 10px rgba(0, 0, 0, 1);
+$evenHighlight: -2px 2px 4px rgba($primaryVariant, 0.4),
+  -2px -2px 4px rgba($primaryVariant, 0.4);
+$onSurfaceShadowLiftedHighlighted: 8px 8px 16px #242424,
+  -8px -8px 16px rgba($primaryVariant, 0.2);
+
+  
+$onSurfaceInsetShadow: inset 4px 4px 10px rgba(0, 0, 0, 0.5);
+
+  // Matches background, work needed for this
+$concaveElementGradientLight: linear-gradient(145deg, #e1e1e6, #ffffff);
+$concaveElementGradientDark: linear-gradient(145deg, #2e2e2e, #373737);
+
+// Transforms
+$standardElementBorderRadius: 5px;
