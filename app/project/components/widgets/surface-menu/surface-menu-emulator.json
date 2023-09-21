@@ -4,7 +4,7 @@
     {
       "type": "s",
       "state": "6", 
-      "value": "[{\"id\": 1, \"icon\": \"fa-home\"},{\"id\": 2, \"icon\": \"fa-arrow-up-from-bracket\"},{\"id\": 3, \"icon\": \"fa-video\"},{\"id\": 4, \"icon\": \"fa-lightbulb\"},{\"id\": 5, \"icon\": \"fa-window-maximize\"}]" 
+      "value": "[{\"id\": 1, \"icon\": \"fa-home\"},{\"id\": 2, \"icon\": \"fa-arrow-up-from-bracket\"},{\"id\": 3, \"icon\": \"fa-video\"},{\"id\": 4, \"icon\": \"fa-lightbulb\"},{\"id\": 5, \"icon\": \"fa-window-maximize\"},{\"id\": 6, \"icon\": \"fa-gear\"},{\"id\": 7, \"icon\": \"fa-bars\"},{\"id\": 8, \"icon\": \"fa-sliders\"}]" 
     }
   ]
 }

@@ -205,6 +205,7 @@ const surfaceMenuModule = (() => {
             <div class="surface" id="surface:${obj.id}">
                 <div class="surface-card">
                     <div class="content-container"></div>
+					<ch5-template id="${obj.templateId}"></ch5-template>
                 </div>
                 <div class="experiment">
                     <div class="surface-icon">
