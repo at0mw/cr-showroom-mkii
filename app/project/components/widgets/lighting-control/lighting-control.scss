@@ -1,0 +1,10 @@
+.lighting-control-widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    @media (max-width: 1550px) {
+        flex-direction: column;
+      }
+}

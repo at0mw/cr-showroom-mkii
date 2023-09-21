@@ -5,11 +5,11 @@ $secondaryColour: #FAFAFF; //#F28482 /* Highlight colour for main navigation, bu
 $secondaryVariant: #5FB49C;//#FF6F59; /* Backup Highlight colour for main navigation, buttons and floating actions */
 $errorColour: #ff2200;
 
-$backgroundColour: #333333; //#FAFAFF
-$surfaceColour: #222222;
+$backgroundColour: transparent; //#333333 //#FAFAFF
+$surfaceColour: #22222265;
 $elevatedSurfaceColour: darken($surfaceColour, 5%);
 
-$surfaceBlur: blur(4px);
+$surfaceBlur: blur(14px);
 //$navBarColour: #353b48;
 
 // Colours On Areas
@@ -21,8 +21,8 @@ $onSurfaceColour: #FFFFFF;
 $onErrorColour: #000000;
 
 // Shadows
-$onBackgroundShadow: 5px 5px 10px #181818, -5px -5px 10px #2c2c2c;
-$onSurfaceShadow: 4px 4px 12px #242424, -4px -4px 12px #4242427c;
+$onBackgroundShadow: 5px 5px 10px #042d47, -5px -5px 10px #063d5f;
+$onSurfaceShadow: 2px 2px 4px #042d47, -4px -4px 12px #063d5f;
 $onSurfacePressedShadow: inset 2px 2px 6px #242424, inset -2px -2px 6px #424242;
 $onForegroundShadow: 7px 5px 10px rgba(0, 0, 0, 1);
 $evenHighlight: -2px 2px 4px rgba($primaryVariant, 0.4),
@@ -39,3 +39,6 @@ $concaveElementGradientDark: linear-gradient(145deg, #2e2e2e, #373737);
 
 // Transforms
 $standardElementBorderRadius: 5px;
+$moduleSpacing: 20px;
+$elementSpacing: 10px;
+$standardButtonHeight: 50px;

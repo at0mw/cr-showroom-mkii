@@ -1,0 +1,25 @@
+@import '../../CustomStyle/variables';
+
+.lighting-inputs-widget {
+	.colour-wheel {
+		margin-bottom: $elementSpacing;
+		height: 20vmin;
+		width: 20vmin;
+		border-radius: 50%;
+		box-shadow: $onSurfaceInsetShadow;
+	}
+
+	.ui-colour-select-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+        margin: $elementSpacing;
+	}
+
+	.lighting-colour-input {
+		opacity: 0;
+		border: 0.4vmin solid #303030ba;
+		height: 100%;
+		width: 100%;
+	}
+}

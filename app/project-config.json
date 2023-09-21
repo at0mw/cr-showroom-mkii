@@ -3,9 +3,23 @@
   "version": "0.0.1",
   "faviconPath": "favicon.ico",
   "menuOrientation": "none",
-  "selectedTheme": "light-theme",
+  "selectedTheme": "crestron-theme",
   "useWebXPanel": true,
   "themes": [
+    {
+      "name": "crestron-theme",
+      "extends": "light-theme",
+      "brandLogo": {
+        "url": "./app/template/assets/img/proAV-logo-transparent.png",
+        "alt": "proAV Logo",
+        "receiveStateUrl": ""
+      },
+      "backgroundProperties": {
+        "url": [
+          "./app/template/assets/img/crestron-blue-points.png"
+        ]
+      }
+    },
     {
       "name": "light-theme",
       "extends": "light-theme",
@@ -135,6 +149,21 @@
         "widgetName": "statusBar",
         "fullPath": "./app/project/components/widgets/status-bar/",
         "fileName": "status-bar.html"
+      },
+      {
+        "widgetName": "lightingControl",
+        "fullPath": "./app/project/components/widgets/lighting-control/",
+        "fileName": "lighting-control.html"
+      },
+      {
+        "widgetName": "lightingPresets",
+        "fullPath": "./app/project/components/widgets/lighting-presets/",
+        "fileName": "lighting-presets.html"
+      },
+      {
+        "widgetName": "lightingInputs",
+        "fullPath": "./app/project/components/widgets/lighting-inputs/",
+        "fileName": "lighting-inputs.html"
       }
     ]
   }

@@ -204,8 +204,9 @@ const surfaceMenuModule = (() => {
 		return `
             <div class="surface" id="surface:${obj.id}">
                 <div class="surface-card">
-                    <div class="content-container"></div>
-					<ch5-template id="${obj.templateId}"></ch5-template>
+                    <div class="content-area">
+						<ch5-template templateid="${obj.templateId}"></ch5-template>
+					</div>					
                 </div>
                 <div class="experiment">
                     <div class="surface-icon">
@@ -266,6 +267,7 @@ const surfaceMenuModule = (() => {
      * private method for widget class creation
      */
 	let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:surfaceMenu-import-widget', (value) => {
+		console.log("Surface menu widget created now!");
 		if (value['loaded']) {
 			setTimeout(() => {
 				CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:surfaceMenu-import-page', loadedSubId);
@@ -278,6 +280,7 @@ const surfaceMenuModule = (() => {
      * private method for widget instance addition and removal
      */
 	CrComLib.subscribeState('o', 'ch5-template:surface-menu-widget', (value) => {
+		console.log("Surface menu widget loaded/removed now!");
 		if (value['loaded'] !== undefined && value['id'] !== undefined) {
 			if (value.loaded) {
 				onInit();
