@@ -24,7 +24,8 @@ $onErrorColour: #000000;
 
 // Shadows
 $onBackgroundShadow: 5px 5px 10px #042d47, -5px -5px 10px #063d5f;
-$onSurfaceShadow: 2px 2px 4px #2c4a5d, -4px -4px 12px #3c647d;
+$onSurfaceShadow: 2px 2px 4px #2c4a5d, -2px -2px 4px #3c647d;
+$onElementShadow: 2px 2px 4px #586970, -2px -2px 4px #788f98;
 $onSurfacePressedShadow: inset 2px 2px 6px #242424, inset -2px -2px 6px #424242;
 $onForegroundShadow: 7px 5px 10px rgba(0, 0, 0, 1);
 $evenHighlight: -2px 2px 4px rgba($primaryVariant, 0.4),

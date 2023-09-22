@@ -9,6 +9,10 @@
 
 .camera-control-widget {
     // BEGIN::CHANGEAREA - your widget level styles go here 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
     // END::CHANGEAREA    
 }

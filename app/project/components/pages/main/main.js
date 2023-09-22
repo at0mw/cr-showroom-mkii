@@ -12,38 +12,39 @@
 /*global serviceModule, CrComLib */
 
 const mainModule = (() => {
-    'use strict';
+	'use strict';
 
-    // BEGIN::CHANGEAREA - your javascript for page module code goes here         
+	// BEGIN::CHANGEAREA - your javascript for page module code goes here
 
-    /**
+	/**
      * Initialize Method
      */
-    function onInit() {
-       serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/pages/main/main-emulator.json");
-       // Uncomment the below line and comment the above to load the emulator all the time.
-       // serviceModule.addEmulatorScenario("./app/project/components/pages/main/main-emulator.json");       
-    }
+	function onInit() {
+		serviceModule.addEmulatorScenarioNoControlSystem('./app/project/components/pages/main/main-emulator.json');
+		// Uncomment the below line and comment the above to load the emulator all the time.
+		// serviceModule.addEmulatorScenario("./app/project/components/pages/main/main-emulator.json");
+		// window.addEventListener('contextmenu', function(event) {
+		// 	event.preventDefault(); // Prevent the default context menu behavior
+		// });
+	}
 
-    /**
+	/**
      * private method for page class initialization
      */
-    let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:main-import-page', (value) => {
-        if (value['loaded']) {
-            onInit();
-            setTimeout(() => {
-                CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:main-import-page', loadedSubId);
-                loadedSubId = '';
-            });
-        }
-    }); 
+	let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:main-import-page', (value) => {
+		if (value['loaded']) {
+			onInit();
+			setTimeout(() => {
+				CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:main-import-page', loadedSubId);
+				loadedSubId = '';
+			});
+		}
+	});
 
-    /**
+	/**
      * All public method and properties are exported here
      */
-    return {
-    };
+	return {};
 
-    // END::CHANGEAREA
-
+	// END::CHANGEAREA
 })();
