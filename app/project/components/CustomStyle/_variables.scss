@@ -14,6 +14,7 @@ $surfaceBlur: blur(14px);
 
 // Colours On Areas
 $onPrimaryColour: #FAFAFF;
+$onPrimaryVariant: #000000;
 $onSecondaryColour: #000000;
 $onSecondaryVariantColour: #FFFFFF;
 $onBackgroundColour: #FFFFFF;
@@ -29,6 +30,9 @@ $evenHighlight: -2px 2px 4px rgba($primaryVariant, 0.4),
   -2px -2px 4px rgba($primaryVariant, 0.4);
 $onSurfaceShadowLiftedHighlighted: 8px 8px 16px #242424,
   -8px -8px 16px rgba($primaryVariant, 0.2);
+
+$sliderHighlight: -4px 4px 8px rgba($primaryVariant, 0.3),
+-4px -4px 8px rgba($primaryVariant, 0.3);
 
   
 $onSurfaceInsetShadow: inset 4px 4px 10px rgba(0, 0, 0, 0.5);

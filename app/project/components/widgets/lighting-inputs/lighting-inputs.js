@@ -12,66 +12,107 @@
 /*global serviceModule, CrComLib */
 
 const lightingInputsInstanceModule = (id, elementIds) => {
-    'use strict';    
+	'use strict';
 
-    // BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here  
-    // console.log(`lightingInputs-widget lightingInputsInstanceModule("${id}", [${elementIds}])`);
+	// BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here
+	// console.log(`lightingInputs-widget lightingInputsInstanceModule("${id}", [${elementIds}])`);
 
-    // choose one of the below 
-    // -- id is container element added around template content
-    // -- elementIds[0] is the first element found in the template content
-    // -- in shell template, elementIds[0] is usually the right choice
-    // const instance = document.getElementById(id);
-    const instance = document.getElementById(elementIds[0]);
+	// choose one of the below
+	// -- id is container element added around template content
+	// -- elementIds[0] is the first element found in the template content
+	// -- in shell template, elementIds[0] is usually the right choice
+	// const instance = document.getElementById(id);
+	const instance = document.getElementById(elementIds[0]);
 
-    // Your code for when widget instance removed from DOM here
-    const cleanup = () => {
-        // console.log(`lightingInputs-widget lightingInputsInstanceModule cleanup("${id}")`);
-    };
+	// Your code for when widget instance removed from DOM here
+	const cleanup = () => {
+		// console.log(`lightingInputs-widget lightingInputsInstanceModule cleanup("${id}")`);
+	};
 
-    // Your code changing public interface to instance module here 
-    return {
-        id,
-        elementIds,
-        instance,
-        cleanup
-    };
+	// Your code changing public interface to instance module here
+	return {
+		id,
+		elementIds,
+		instance,
+		cleanup
+	};
 
-    // END::CHANGEAREA  
-} 
+	// END::CHANGEAREA
+};
 
 const lightingInputsModule = (() => {
-    'use strict';
+	'use strict';
 
-    // BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here  
-   
-    const widgetInstances = {};
+	// BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here
 
-    /**
+	const widgetInstances = {};
+
+	/**
      * Initialize Method
      */
-    function onInit() {
-       serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/lighting-inputs/lighting-inputs-emulator.json");
-       // Uncomment the below line and comment the above to load the emulator all the time.
-       // serviceModule.addEmulatorScenario("./app/project/components/widgets/lighting-inputs/lighting-inputs-emulator.json");
-    }
-
-    function onAddition() {
-        window.addEventListener('resize', handleShowSliderAutoInput);
-        const slider_input = document.getElementById('brightness-input');
-        if (slider_input) {
-            slider_input.addEventListener('input', handleShowSliderUserInput);
-            slider_input.addEventListener('change', sendBrightnessUpdate);
-        }
-    }
-
-    function sendBrightnessUpdate(event) {
-		const inputValue = event.target.value;
-		const parsedValue = parseInt(inputValue, 10);
-		sendSignal.sendAnalogSignal('1', parsedValue);
+	function onInit() {
+		// serviceModule.addEmulatorScenarioNoControlSystem(
+		// 	'./app/project/components/widgets/lighting-inputs/lighting-inputs-emulator.json'
+		// );
+		// Uncomment the below line and comment the above to load the emulator all the time.
+		serviceModule.addEmulatorScenario(
+			'./app/project/components/widgets/lighting-inputs/lighting-inputs-emulator.json'
+		);
 	}
 
-    function handleShowSliderAutoInput() {
+	function onAddition() {
+		window.addEventListener('resize', handleShowSliderAutoInput);
+		const slider_input = document.getElementById('brightness-input');
+		if (slider_input) {
+			slider_input.addEventListener('input', handleShowSliderUserInput);
+			slider_input.addEventListener('change', sendBrightnessUpdate);
+		}
+
+		const lightingColourSelect = document.getElementById('lighting-colour-select');
+		lightingColourSelect.addEventListener('input', handleUpdateColourVisuals);
+		lightingColourSelect.addEventListener('change', handleColourUpdate);
+	}
+
+	function handleUpdateColourVisuals(event) {
+		const correctedHexColour = correctHexColourRange(event.target.value);
+		updateColourVisuals(correctedHexColour);
+	}
+
+	function updateColourVisuals(colourValue) {
+		document.querySelectorAll('.colour-wheel').forEach((colourWheel) => {
+			//console.log("Setting One Area Bg Colour: ", colourValue);
+			colourWheel.style.backgroundColor = colourValue;
+		});
+	}
+
+	function handleColourUpdate(event) {
+		const hexColor = event.target.value;
+		sendColourLevelUpdate(hexColor);
+	}
+
+	function updateColourBrightness(brightnessFbValue) {
+		const minBrightness = 0.5;
+		const maxBrightness = 1;
+		let brightnessDecimal = brightnessFbValue / 100 * (maxBrightness - minBrightness) + minBrightness;
+
+		brightnessDecimal = Math.min(maxBrightness, Math.max(minBrightness, brightnessDecimal));
+
+		document.querySelectorAll('.colour-wheel').forEach((colourWheel) => {
+			colourWheel.style.filter = 'brightness(' + brightnessDecimal + ')';
+		});
+	}
+
+	function sendColourLevelUpdate(value) {
+		sendSignal.sendStringSignal(serialJoins.LightingInputColour, value);
+	}
+
+	function sendBrightnessUpdate(event) {
+		const inputValue = event.target.value;
+		const parsedValue = parseInt(inputValue, 10);
+		sendSignal.sendAnalogSignal(analogJoins.LightingInputBrightness, parsedValue);
+	}
+
+	function handleShowSliderAutoInput() {
 		showSliderValue(false);
 	}
 
@@ -80,7 +121,7 @@ const lightingInputsModule = (() => {
 	}
 
 	function showSliderValue(showThumb) {
-        // TODO Only one instance of this widget is therefore useable, can replace with context?
+		// TODO Only one instance of this widget is therefore useable, can replace with context?
 		const sliderInput = document.getElementById('brightness-input');
 		const sliderThumb = document.getElementById('brightness-thumb');
 		const sliderLine = document.getElementById('brightness-line');
@@ -116,47 +157,112 @@ const lightingInputsModule = (() => {
 			space = sliderInput.offsetWidth;
 
 		sliderThumb.style.left = bulletPosition * space + 'px';
-		sliderLine.style.width = (sliderInput.value / sliderInput.max * 100) + '%';
+		sliderLine.style.width = sliderInput.value / sliderInput.max * 100 + '%';
 	}
 
-    /**
+	/* ============================ Subscribe Feedback Events Start ============================ */
+
+	// === Subscribe to Colour Slider Preset Feedback and Handle ===
+	const lightingColourFbSubscription = CrComLib.subscribeState('s', serialJoins.LightingInputColourFb, (value) => {
+		parseColourFeedback(value);
+	});
+
+	// === Subscribe to Brightness Slider Preset Feedback and Handle ===
+	const lightingBrightnessFbSubscription = CrComLib.subscribeState(
+		'n',
+		analogJoins.LightingInputBrightnessFb,
+		(value) => {
+			parseBrightnessFeedback(value);
+		}
+	);
+
+	/* ============================ Subscribe Feedback Events End ============================ */
+
+	/* ============================ Parse Feedback Start ============================ */
+
+	function parseColourFeedback(colourFbValue) {
+		console.log('Feedback CrComLib :::: Lighting Control ::: Receiving Colour Feedback :: Value: ', colourFbValue);
+		const lightingColourSelect = document.getElementById('lighting-colour-select');
+
+		if (lightingColourSelect) {
+			lightingColourSelect.value = colourFbValue;
+			const hexColourCorrected = correctHexColourRange(colourFbValue);
+			updateColourVisuals(hexColourCorrected);
+		}
+	}
+
+	function correctHexColourRange(hexColor) {
+		const hexValue = hexColor.replace('#', '');
+
+		// Parse the hexadecimal components to decimal
+		const red = parseInt(hexValue.substring(0, 2), 16);
+		const green = parseInt(hexValue.substring(2, 4), 16);
+		const blue = parseInt(hexValue.substring(4, 6), 16);
+
+		// Ensure RGB components are within the valid range (40-255)
+		const adjustedRed = Math.max(50, red);
+		const adjustedGreen = Math.max(50, green);
+		const adjustedBlue = Math.max(50, blue);
+
+		const adjustedHexColor = `#${adjustedRed.toString(16).padStart(2, '0')}${adjustedGreen
+			.toString(16)
+			.padStart(2, '0')}${adjustedBlue.toString(16).padStart(2, '0')}`;
+
+		return adjustedHexColor;
+	}
+
+	function parseBrightnessFeedback(brightnessFbValue) {
+		console.log(
+			'Feedback CrComLib :::: Lighting Control ::: Receiving Brightness Feedback :: Value: ',
+			brightnessFbValue
+		);
+		const brightnessSlider = document.getElementById('brightness-input');
+		if (brightnessSlider) {
+			if (Number.isInteger(brightnessFbValue) && brightnessFbValue >= 0 && brightnessFbValue <= 100) {
+				brightnessSlider.value = brightnessFbValue;
+				showSliderValue(false);
+				updateColourBrightness(brightnessSlider.value);
+			}
+		}
+	}
+	/* ============================ Parse Feedback End ============================ */
+
+	/**
      * private method for widget class creation
      */
-    let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:lightingInputs-import-widget', (value) => {
-        if (value['loaded']) {
-            onInit();
-            setTimeout(() => {
-                CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:lightingInputs-import-page', loadedSubId);
-                loadedSubId = '';
-            });
-        }
-    });
+	let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:lightingInputs-import-widget', (value) => {
+		if (value['loaded']) {
+			onInit();
+			setTimeout(() => {
+				CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:lightingInputs-import-page', loadedSubId);
+				loadedSubId = '';
+			});
+		}
+	});
 
-    /**
+	/**
      * private method for widget instance addition and removal
      */
-    CrComLib.subscribeState('o', 'ch5-template:lighting-inputs-widget', (value) => {
-        if (value['loaded'] !== undefined && value['id'] !== undefined) {
-            if (value.loaded) {
-                onAddition();
-                widgetInstances[value.id] = lightingInputsInstanceModule(value.id, value['elementIds']);
-            }
-            else {
-                const removedInstance = widgetInstances[value.id];
-                if (removedInstance) {
-                    removedInstance.cleanup();
-                    delete widgetInstances[value.id];
-                }
-            }
-        }
-    });
-    /**
+	CrComLib.subscribeState('o', 'ch5-template:lighting-inputs-widget', (value) => {
+		if (value['loaded'] !== undefined && value['id'] !== undefined) {
+			if (value.loaded) {
+				onAddition();
+				widgetInstances[value.id] = lightingInputsInstanceModule(value.id, value['elementIds']);
+			} else {
+				const removedInstance = widgetInstances[value.id];
+				if (removedInstance) {
+					removedInstance.cleanup();
+					delete widgetInstances[value.id];
+				}
+			}
+		}
+	});
+	/**
      * All public method and properties are exported here
      */
-    return {
-        widgetInstances
-    };
+	return {
+		widgetInstances
+	};
 
-    // END::CHANGEAREA   
-
+	// END::CHANGEAREA
 })();

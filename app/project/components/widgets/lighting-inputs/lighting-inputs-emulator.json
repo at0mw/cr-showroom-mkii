@@ -1,4 +1,17 @@
 {
-  "cues": [],
-  "onStart": []
+	"cues": [
+		{
+			"type": "s",
+			"event": "36",
+			"trigger": "&change",
+			"actions": [ { "type": "s", "state": "37", "logic": "link" } ]
+		},
+		{
+			"type": "n",
+			"event": "38",
+			"trigger": "&change",
+			"actions": [ { "type": "n", "state": "39", "logic": "link" } ]
+		}
+	],
+	"onStart": []
 }

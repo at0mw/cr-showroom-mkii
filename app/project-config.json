@@ -164,6 +164,11 @@
         "widgetName": "lightingInputs",
         "fullPath": "./app/project/components/widgets/lighting-inputs/",
         "fileName": "lighting-inputs.html"
+      },
+      {
+        "widgetName": "sourceControl",
+        "fullPath": "./app/project/components/widgets/source-control/",
+        "fileName": "source-control.html"
       }
     ]
   }
