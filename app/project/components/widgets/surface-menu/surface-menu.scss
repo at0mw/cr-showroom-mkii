@@ -37,7 +37,7 @@
       height: 60px;
       width: 60px;
       border-radius: 50%;
-      background-color: $elevatedSurfaceColour; 
+      background-color: $raisedSurface; 
       backdrop-filter: $surfaceBlur;  
       box-shadow: $onSurfaceShadow;
       z-index: 10;
@@ -54,7 +54,7 @@
       width: 5vw;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.2s, visibility 0.2s, height 0.2s ease;
+      //transition: opacity 0.2s, visibility 0.2s, height 0.2s ease;
     }
 
     .surface.expanded .surface-card {

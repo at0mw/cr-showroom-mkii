@@ -6,7 +6,8 @@ $secondaryVariant: #5FB49C;//#FF6F59; /* Backup Highlight colour for main naviga
 $errorColour: #ff2200;
 
 $backgroundColour: transparent; //#333333 //#FAFAFF
-$surfaceColour: #22222265;
+$surfaceColour: rgba(155,155,155, 0.3);
+$raisedSurface: rgba(142,142,142);
 $elevatedSurfaceColour: darken($surfaceColour, 5%);
 
 $surfaceBlur: blur(14px);
@@ -23,7 +24,7 @@ $onErrorColour: #000000;
 
 // Shadows
 $onBackgroundShadow: 5px 5px 10px #042d47, -5px -5px 10px #063d5f;
-$onSurfaceShadow: 2px 2px 4px #042d47, -4px -4px 12px #063d5f;
+$onSurfaceShadow: 2px 2px 4px #2c4a5d, -4px -4px 12px #3c647d;
 $onSurfacePressedShadow: inset 2px 2px 6px #242424, inset -2px -2px 6px #424242;
 $onForegroundShadow: 7px 5px 10px rgba(0, 0, 0, 1);
 $evenHighlight: -2px 2px 4px rgba($primaryVariant, 0.4),
@@ -45,4 +46,5 @@ $concaveElementGradientDark: linear-gradient(145deg, #2e2e2e, #373737);
 $standardElementBorderRadius: 5px;
 $moduleSpacing: 20px;
 $elementSpacing: 10px;
-$standardButtonHeight: 50px;
+$standardButtonHeight: 60px;
+$boxButtonSize: 200px;

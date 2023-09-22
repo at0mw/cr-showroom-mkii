@@ -51,9 +51,76 @@ const sourceControlModule = (() => {
      * Initialize Method
      */
     function onInit() {
-       serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/source-control/source-control-emulator.json");
+    //    serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/source-control/source-control-emulator.json");
        // Uncomment the below line and comment the above to load the emulator all the time.
-       // serviceModule.addEmulatorScenario("./app/project/components/widgets/source-control/source-control-emulator.json");
+       serviceModule.addEmulatorScenario("./app/project/components/widgets/source-control/source-control-emulator.json");
+    }
+
+    function onLoaded(){
+        const hdmiMediaButton = document.getElementById("hdmi-media:1");
+        const airMediaButton = document.getElementById("air-media:2");
+      
+        hdmiMediaButton.addEventListener("click", handleButtonPress);
+      
+        airMediaButton.addEventListener("click", handleButtonPress);
+        //console.log("Ended Mode Button Setup");
+    }
+
+    let activeSourceId;
+    function handleButtonPress(event) {
+        const targetButtonId = event.target.id;
+        
+        if(activeSourceId !== targetButtonId) {
+            const splitSourceNumber = event.target.id.split(":");
+            if (splitSourceNumber.length > 1 && !isNaN(splitSourceNumber[1])) {
+                const sourceId = parseInt(splitSourceNumber[1], 10);
+                changeMode(sourceId);            
+            } else {
+                console.error("Source Button has returned invalid source id");
+            }
+        } else {            
+            changeMode(0);        
+        }
+    }
+
+    function changeMode(newMode){
+        sendSignal.sendAnalogSignal(analogJoins.SourceModeButton, newMode);
+    }
+
+    const modeSubscription = CrComLib.subscribeState('n', analogJoins.SourceModeButtonFb, (value) => {
+        console.log("Feedback CrComLib :::: Source Buttons ::: Receiving Source Feedback :: Value: ", value);
+        updateHeaderDisplay(value);
+      });
+
+    function updateHeaderDisplay(newMode){
+        switch(newMode){
+            case 1:
+                updateActiveButton('hdmi-media:1');
+                break;
+            case 2:
+                updateActiveButton('air-media:2');
+                break;
+            default:
+                updateActiveButton();
+                break;
+        }
+    }
+
+    function updateActiveButton(activeButtonId){
+        const buttons = document.querySelectorAll('.source-button');
+        if(buttons){
+            activeSourceId = null;
+            buttons.forEach(button => {
+              if (button.id === activeButtonId) {
+                button.classList.add('button-toggle');
+                activeSourceId = activeButtonId;
+              } else {
+                button.classList.remove('button-toggle');
+              }
+            });
+        } else {
+            console.error(`Buttons not yet available or not found.`);
+        }
     }
 
     /**
@@ -61,7 +128,6 @@ const sourceControlModule = (() => {
      */
     let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:sourceControl-import-widget', (value) => {
         if (value['loaded']) {
-            onInit();
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:sourceControl-import-page', loadedSubId);
                 loadedSubId = '';
@@ -75,6 +141,8 @@ const sourceControlModule = (() => {
     CrComLib.subscribeState('o', 'ch5-template:source-control-widget', (value) => {
         if (value['loaded'] !== undefined && value['id'] !== undefined) {
             if (value.loaded) {
+                onInit();
+                onLoaded();
                 widgetInstances[value.id] = sourceControlInstanceModule(value.id, value['elementIds']);
             }
             else {

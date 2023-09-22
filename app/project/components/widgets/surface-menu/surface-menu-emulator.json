@@ -4,7 +4,7 @@
     {
       "type": "s",
       "state": "6", 
-      "value": "[{\"id\": 1, \"icon\": \"fa-arrow-up-from-bracket\"},{\"id\": 2, \"icon\": \"fa-lightbulb\", \"templateId\":\"lighting-control-widget\"},{\"id\": 3, \"icon\": \"fa-video\"},{\"id\": 4, \"icon\": \"fa-window-maximize\"},{\"id\": 5, \"icon\": \"fa-gear\"},{\"id\": 6, \"icon\": \"fa-sliders\"}]" 
+      "value": "[{\"id\": 1, \"icon\": \"fa-regular fa-arrow-up-from-bracket\", \"templateId\":\"source-control-widget\"},{\"id\": 2, \"icon\": \"fa-regular fa-lightbulb\", \"templateId\":\"lighting-control-widget\"},{\"id\": 3, \"icon\": \"fa-regular fa-video\", \"templateId\":\"camera-control-widget\"},{\"id\": 4, \"icon\": \"fa-regular fa-blinds\", \"templateId\":\"shade-control-widget\"},{\"id\": 5, \"icon\": \"fa-regular fa-outlet\", \"templateId\":\"fliptop-control-widget\"},{\"id\": 6, \"icon\": \"fa-regular fa-airplay\", \"templateId\":\"air-media-control-widget\"}]" 
     }
   ]
 }

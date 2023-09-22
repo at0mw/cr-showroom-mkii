@@ -489,6 +489,7 @@ class DynamicListMenuLogic {
   }
 
   trackDraggingUpdates(e) {
+    //console.log("Dragging updates...");
     const isTouchEvent = e.type === "touchmove";
     const clientX = isTouchEvent ? e.touches[0].clientX : e.clientX;
     const clientY = isTouchEvent ? e.touches[0].clientY : e.clientY;
@@ -497,6 +498,7 @@ class DynamicListMenuLogic {
     const dynamicMenu = document.getElementById(this.dynamicMenuId);
 
     if (targetButton && dynamicMenu && dynamicMenu.contains(targetButton)) {
+      console.log("Dragging updates...", targetButton.id);
       if (
         targetButton.classList.contains("list-button") &&
         targetButton !== this.activeButton
@@ -618,6 +620,7 @@ class DynamicListMenuLogic {
     This will trigger when a button is dragged to the specified area which enables reordering the item to the previous page.
   */
   reorderHighlightedBack() {
+    console.log("Moving backwards?");
     this.decrementPage();
     this.retrieveNewPageandInsertHtml(true, this.activeButton.id);
     //this.subscribeToEvents();
@@ -627,6 +630,7 @@ class DynamicListMenuLogic {
     This will trigger when a button is dragged to the specified area which enables reordering the item to the next page.        
   */
   reorderHighlightedForward() {
+    console.log("Moving forwards?");
     this.incrementPage();
     this.retrieveNewPageandInsertHtml(true, this.activeButton.id);
     //this.subscribeToEvents();

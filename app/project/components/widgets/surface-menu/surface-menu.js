@@ -210,7 +210,7 @@ const surfaceMenuModule = (() => {
                 </div>
                 <div class="experiment">
                     <div class="surface-icon">
-                        <i class="fas ${obj.icon}"></i>
+                        <i class="${obj.icon}"></i>
                     </div>
                 </div>
             </div>

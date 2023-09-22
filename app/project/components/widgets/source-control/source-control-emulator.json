@@ -1,4 +1,9 @@
 {
-  "cues": [],
-  "onStart": []
+  "cues": [
+    {"type": "n", "event": "11", "trigger": "&change",  
+      "actions": [{"type": "n", "state": "12","logic": "link"}]}
+  ],
+  "onStart": [
+    {"type":"n","state":"12", "value": 1}
+  ]
 }

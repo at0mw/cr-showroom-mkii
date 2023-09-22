@@ -169,6 +169,36 @@
         "widgetName": "sourceControl",
         "fullPath": "./app/project/components/widgets/source-control/",
         "fileName": "source-control.html"
+      },
+      {
+        "widgetName": "airMediaControl",
+        "fullPath": "./app/project/components/widgets/air-media-control/",
+        "fileName": "air-media-control.html"
+      },
+      {
+        "widgetName": "shadeControl",
+        "fullPath": "./app/project/components/widgets/shade-control/",
+        "fileName": "shade-control.html"
+      },
+      {
+        "widgetName": "cameraControl",
+        "fullPath": "./app/project/components/widgets/camera-control/",
+        "fileName": "camera-control.html"
+      },
+      {
+        "widgetName": "fliptopControl",
+        "fullPath": "./app/project/components/widgets/fliptop-control/",
+        "fileName": "fliptop-control.html"
+      },
+      {
+        "widgetName": "cameraInputs",
+        "fullPath": "./app/project/components/widgets/camera-inputs/",
+        "fileName": "camera-inputs.html"
+      },
+      {
+        "widgetName": "cameraPresets",
+        "fullPath": "./app/project/components/widgets/camera-surface/camera-presets/",
+        "fileName": "camera-presets.html"
       }
     ]
   }

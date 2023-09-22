@@ -103,7 +103,7 @@ const lightingInputsModule = (() => {
 	}
 
 	function sendColourLevelUpdate(value) {
-		sendSignal.sendStringSignal(serialJoins.LightingInputColour, value);
+		sendSignal.sendSerialSignal(serialJoins.LightingInputColour, value);
 	}
 
 	function sendBrightnessUpdate(event) {

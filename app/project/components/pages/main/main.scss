@@ -17,24 +17,50 @@
 	flex-direction: column;
 	background-color: $backgroundColour;
 	backdrop-filter: $surfaceBlur;
+	user-select: none;
+
+	img {
+		// user-drag: none;
+		-moz-user-drag: none;
+		-webkit-user-drag: none;
+	}
 
 	.button {
 		cursor: pointer;
 		border-radius: $standardElementBorderRadius;
 		text-align: left;
-		transition: background-color 0.5s, color 0.5s;
+		transition: background-color 0.5s, color 0.5s, fill 0.5s;
 		box-shadow: $onSurfaceShadow;
 		background-color: $elevatedSurfaceColour;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		fill: $onPrimaryColour;
 	}
+
+	.icon-img {
+		height: 60px;
+	}
+
+	// .icon-svg:active {
+	// 	fill: $onPrimaryVariant;
+	// }
 
 	.button:active {
 		background-color: $primaryVariant;
 		color: $onPrimaryVariant;
 		box-shadow: $onSurfacePressedShadow;
-		//transform: scale(0.9);
+		fill: $onPrimaryVariant;
+	}
+
+	.box-button {
+		height: $boxButtonSize;
+		width: $boxButtonSize;
+		margin: $elementSpacing;
+		padding: $moduleSpacing;
+		align-items: start;
+		justify-content: space-between;
+		flex-direction: column;
 	}
 
 	.icon-circle {
@@ -86,8 +112,7 @@
 	}
 
 	.preset-box-container {
-		width: 100%;
-		height: 410px;
+		width: 90%;
 	}
 
 	.input-box-container {
@@ -98,13 +123,14 @@
 	}
 
 	.preset-list {
-		height: 310px;
+		height: 350px;
 	}
 
 	.menu-header-space {
 		display: flex;
 		justify-content: space-between;
 		margin: auto;
+		margin-bottom: $moduleSpacing;
 	}
 
 	.menu-button-space {
@@ -114,7 +140,7 @@
 	}
 
 	.menu-button {
-		height: 50px;
+		height: $standardButtonHeight;
 		width: 100px;
 		display: flex;
 		justify-content: center;
@@ -130,6 +156,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: start;
+			margin-top: $moduleSpacing;
 		}
 
 		.ui-control-area {
