@@ -137,62 +137,62 @@
     "widgets": [
       {
         "widgetName": "surfaceMenu",
-        "fullPath": "./app/project/components/widgets/surface-menu/",
+        "fullPath": "./app/project/components/widgets/main-surface/surface-menu/",
         "fileName": "surface-menu.html"
       },
       {
         "widgetName": "controlBar",
-        "fullPath": "./app/project/components/widgets/control-bar/",
+        "fullPath": "./app/project/components/widgets/main-surface/control-bar/",
         "fileName": "control-bar.html"
       },
       {
         "widgetName": "statusBar",
-        "fullPath": "./app/project/components/widgets/status-bar/",
+        "fullPath": "./app/project/components/widgets/main-surface/status-bar/",
         "fileName": "status-bar.html"
       },
       {
         "widgetName": "lightingControl",
-        "fullPath": "./app/project/components/widgets/lighting-control/",
+        "fullPath": "./app/project/components/widgets/lighting-surface/lighting-control/",
         "fileName": "lighting-control.html"
       },
       {
         "widgetName": "lightingPresets",
-        "fullPath": "./app/project/components/widgets/lighting-presets/",
+        "fullPath": "./app/project/components/widgets/lighting-surface/lighting-presets/",
         "fileName": "lighting-presets.html"
       },
       {
         "widgetName": "lightingInputs",
-        "fullPath": "./app/project/components/widgets/lighting-inputs/",
+        "fullPath": "./app/project/components/widgets/lighting-surface/lighting-inputs/",
         "fileName": "lighting-inputs.html"
       },
       {
         "widgetName": "sourceControl",
-        "fullPath": "./app/project/components/widgets/source-control/",
+        "fullPath": "./app/project/components/widgets/source-surface/source-control/",
         "fileName": "source-control.html"
       },
       {
         "widgetName": "airMediaControl",
-        "fullPath": "./app/project/components/widgets/air-media-control/",
+        "fullPath": "./app/project/components/widgets/air-media-surface/air-media-control/",
         "fileName": "air-media-control.html"
       },
       {
         "widgetName": "shadeControl",
-        "fullPath": "./app/project/components/widgets/shade-control/",
+        "fullPath": "./app/project/components/widgets/shade-surface/shade-control/",
         "fileName": "shade-control.html"
       },
       {
         "widgetName": "cameraControl",
-        "fullPath": "./app/project/components/widgets/camera-control/",
+        "fullPath": "./app/project/components/widgets/camera-surface/camera-control/",
         "fileName": "camera-control.html"
       },
       {
         "widgetName": "fliptopControl",
-        "fullPath": "./app/project/components/widgets/fliptop-control/",
+        "fullPath": "./app/project/components/widgets/fliptop-surface/fliptop-control/",
         "fileName": "fliptop-control.html"
       },
       {
         "widgetName": "cameraInputs",
-        "fullPath": "./app/project/components/widgets/camera-inputs/",
+        "fullPath": "./app/project/components/widgets/camera-surface/camera-inputs/",
         "fileName": "camera-inputs.html"
       },
       {

@@ -54,7 +54,7 @@ const lightingPresetsModule = (() => {
 		//    serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/lighting-presets/lighting-presets-emulator.json");
 		// Uncomment the below line and comment the above to load the emulator all the time.
 		serviceModule.addEmulatorScenario(
-			'./app/project/components/widgets/lighting-presets/lighting-presets-emulator.json'
+			'./app/project/components/widgets/lighting-surface/lighting-presets/lighting-presets-emulator.json'
 		);
 	}
 

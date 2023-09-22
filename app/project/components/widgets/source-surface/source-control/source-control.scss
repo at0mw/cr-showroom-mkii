@@ -1,4 +1,4 @@
-@import '../../CustomStyle/variables';
+@import '../../../CustomStyle/variables';
 
 .source-control-widget {
 	display: flex;
@@ -13,6 +13,7 @@
 	.box-button-icon {
         display: flex;
         justify-content: space-between;
+		align-items: center;
         width: 100%;
 		height: 60px;
 	}
@@ -22,8 +23,8 @@
 	}
 
 	.cancel-box {
-		height: 60px;
-		width: 60px;
+		height: 45px;
+		width: 45px;
 		background-color: rgba(0, 0, 0, 0.5);
 		z-index: 3;
 		border-radius: $standardElementBorderRadius;

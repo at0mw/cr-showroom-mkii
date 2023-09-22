@@ -56,7 +56,7 @@ const lightingInputsModule = (() => {
 		// );
 		// Uncomment the below line and comment the above to load the emulator all the time.
 		serviceModule.addEmulatorScenario(
-			'./app/project/components/widgets/lighting-inputs/lighting-inputs-emulator.json'
+			'./app/project/components/widgets/lighting-surface/lighting-inputs/lighting-inputs-emulator.json'
 		);
 	}
 
