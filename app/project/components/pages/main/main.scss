@@ -25,6 +25,10 @@
 		-webkit-user-drag: none;
 	}
 
+	.module-title-space {
+		margin-bottom: $moduleSpacing;
+	}
+
 	.button {
 		cursor: pointer;
 		border-radius: $standardElementBorderRadius;
@@ -75,7 +79,7 @@
 
 	.content-area {
 		width: 100%;
-		height: 92%;
+		height: 94%;
 		overflow: hidden;
 		margin: 5px;
 		display: flex;
@@ -84,16 +88,16 @@
 	}
 
 	.ui-control-area {
-		flex: 1;
-		min-width: 45%;
-		height: 600px;
-		width: 400px;
+		// flex: 1;
+		// min-width: 45%;
+		// height: 600px;
+		// width: 400px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
 		align-items: center;
 		position: relative;
-		margin: $moduleSpacing;
+		margin: auto;
 	}
 
 	.ui-control-area-overlay {
@@ -110,8 +114,19 @@
 		padding: 20px;
 	}
 
+	.diverse-control-group {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		
+		@media (max-width: 1550px) {
+			flex-direction: column;
+		  }
+	}
+
 	.preset-box-container {
-		width: 90%;
+		width: $standardModuleWidth;
 	}
 
 	.input-box-container {
@@ -134,7 +149,7 @@
 
 	.menu-button-space {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		margin: auto;
 	}
 
@@ -148,25 +163,36 @@
 
 	@media (max-width: 1550px) {
 		.content-area {
-			width: 100%;
-			height: 92%;
 			overflow-y: auto;
-			margin: 5px;
+			margin: 0;
 			display: flex;
 			justify-content: center;
 			align-items: start;
-			margin-top: $moduleSpacing;
+			padding-top: $moduleSpacing;
+			padding-bottom: $moduleSpacing;
+			height: 92%;
 		}
 
 		.ui-control-area {
 			width: 80%;
 			flex: none;
 			height: auto;
+			margin-bottom: $moduleSpacing;
+		}
+
+		.preset-box-container {
+			width: 90%;
+		}
+
+		.slider-input-area {
+			width: 90%;
 		}
 	}
 
 	ch5-template {
 		width: 100%;
+		margin: auto;
+		//height: 100%;
 	}
 
 	.unclickable {
@@ -196,7 +222,7 @@
   */
 	.range-slider {
 		position: relative;
-		width: 400px;
+		width: $standardSliderLength;
 		height: 60px;
 	}
 
@@ -270,7 +296,7 @@
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-		width: 100%;
+		//width: 100%;
 		margin: auto;
 	}
 
