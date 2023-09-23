@@ -56,12 +56,48 @@ const cameraInputsModule = (() => {
        // serviceModule.addEmulatorScenario("./app/project/components/widgets/camera-inputs/camera-inputs-emulator.json");
     }
 
+    function onLoaded(){
+        document.getElementById('camera-direction-input').addEventListener('click', handleOpadCommand);
+
+        document.getElementById('camera-zoom-input').addEventListener('click', handleRsLrCommand);
+    }
+
+    function handleOpadCommand(event) {
+        const buttonId = event.target.id;
+        //console.log("Opad Pressed button id: ", buttonId)
+        switch(buttonId){
+            case "camera-direction-up":
+                sendSignal.sendActionPulse(digitalJoins.CameraControlDpadUp);
+                break;
+            case "camera-direction-right":
+                sendSignal.sendActionPulse(digitalJoins.CameraControlDpadRight);
+                break;
+            case "camera-direction-down":
+                sendSignal.sendActionPulse(digitalJoins.CameraControlDpadDown);
+                break;
+            case "camera-direction-left":
+                sendSignal.sendActionPulse(digitalJoins.CameraControlDpadLeft);
+                break;
+        }
+    }
+
+    function handleRsLrCommand(event) {
+        const buttonId = event.target.id;
+        switch(buttonId){
+            case "raise":
+                sendSignal.sendActionPulse(digitalJoins.CameraControlRsLrUp);
+                break;
+            case "lower":
+                sendSignal.sendActionPulse(digitalJoins.CameraControlRsLrDown);
+                break;
+        }
+    } 
+
     /**
      * private method for widget class creation
      */
     let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:cameraInputs-import-widget', (value) => {
         if (value['loaded']) {
-            onInit();
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:cameraInputs-import-page', loadedSubId);
                 loadedSubId = '';
@@ -75,6 +111,8 @@ const cameraInputsModule = (() => {
     CrComLib.subscribeState('o', 'ch5-template:camera-inputs-widget', (value) => {
         if (value['loaded'] !== undefined && value['id'] !== undefined) {
             if (value.loaded) {
+                onInit();
+                onLoaded();
                 widgetInstances[value.id] = cameraInputsInstanceModule(value.id, value['elementIds']);
             }
             else {

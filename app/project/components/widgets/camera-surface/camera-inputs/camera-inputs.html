@@ -1,20 +1,18 @@
 <template id="camera-inputs-widget"> 
     <div class="camera-inputs-widget" aria-labelledby="Camera Inputs"> 
         <div class="set transparent">
-            <nav class="o-pad">
-              <a class="up" href="#" draggable="false"></a>
-              <a class="right" href="#" draggable="false"></a>
-              <a class="down" href="#" draggable="false"></a>
-              <a class="left" href="#" draggable="false"></a>  
+            <nav class="o-pad" id="camera-direction-input">
+              <a id="camera-direction-up" class="up" href="#" draggable="false"></a>
+              <a id="camera-direction-right" class="right" href="#" draggable="false"></a>
+              <a id="camera-direction-down" class="down" href="#" draggable="false"></a>
+              <a id="camera-direction-left" class="left" href="#" draggable="false"></a>  
             </nav>
         </div>
-        <div class="raise-lower">
+        <div class="raise-lower" id="camera-zoom-input">
             <div class="button raise-lower-button raise-lower-left">
                 <i class="minus-icon-area fas fa-minus" id="lower"></i> 
             </div>
-            <div class="button spacer unclickable">
-
-            </div>
+            <div class="button spacer unclickable"></div>
             <div class="button raise-lower-button raise-lower-right">
                 <i class="plus-icon-area fas fa-plus" id="raise"></i>
             </div>
