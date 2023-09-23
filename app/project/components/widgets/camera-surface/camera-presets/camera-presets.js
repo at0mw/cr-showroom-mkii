@@ -54,6 +54,157 @@ const cameraPresetsModule = (() => {
        serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/camera-presets/camera-presets-emulator.json");
        // Uncomment the below line and comment the above to load the emulator all the time.
        // serviceModule.addEmulatorScenario("./app/project/components/widgets/camera-presets/camera-presets-emulator.json");
+       createCameraMenu();
+    }
+
+    let cameraOptions = [
+        { id: 1, cameraLabel: 'Audience', order: 1,
+            presets: [
+                {
+                    presetLabel: "Audience Zoom", presetId: 1
+                },
+                {
+                    presetLabel: "Audience Wide", presetId: 2
+                }
+            ]
+        },
+        { id: 2, cameraLabel: 'Presenter Close', order: 2, 
+            presets: [
+                {
+                    presetLabel: "Presenter Zoom", presetId: 1
+                },
+                {
+                    presetLabel: "Presenter Wide", presetId: 2
+                }
+            ]
+        },
+        { id: 3, cameraLabel: 'Lectern', order: 3,
+            presets: [
+                {
+                    presetLabel: "High Zoom", presetId: 1
+                },
+                {
+                    presetLabel: "No Zoom", presetId: 2
+                }
+            ]
+        },
+        { id: 4, cameraLabel: 'Outside', order: 4, presets: [] },
+      ];
+
+    function createCameraMenu() {
+        //console.log("Creating Dynamic Camera Menu...")
+        // This is to mock a potential json input for now - from a string crcomlib subscribe
+        const cameraOptionsContainer = document.getElementById('dynamic-camera-menu');
+        const cameraPresetsContainer = document.getElementById('dynamic-preset-menu');
+    
+        cameraOptions.forEach(camera => {
+            const cameraOptionHtml = `
+            <div class="list-button button camera-list-dynamic" id="cameraOption${camera.id}">
+                <div class="camera-label unclickable">
+                    <div class="list-button-text">${camera.cameraLabel}</div>
+                    <i class="forward-icon fa-solid fa-caret-right"></i>
+                </div>
+            </div>
+        `;
+
+        const cameraPresetsHtml = `
+        <div class="preset-list-dynamic" id="cameraId${camera.id}presets">           
+                ${camera.presets.map(preset => `
+                    <div class="list-button button camera-preset" id="presetId${preset.presetId}">
+                        <div class="camera-label unclickable">${preset.presetLabel}</div>                        
+                    </div>
+                `).join('')}
+        </div>
+        `
+        cameraOptionsContainer.insertAdjacentHTML('beforeend', cameraOptionHtml);
+        cameraPresetsContainer.insertAdjacentHTML('beforeend', cameraPresetsHtml)
+        });
+
+        initializeDragAndDrop();
+    }
+
+    // === Handle Camera Selection ===
+    // This section contains code which handles the selection of a camera and opening its preset menu.
+    function extractCameraId(buttonId) {
+        // Assuming the buttonId is in the format "cameraOption1"
+        const numericPart = buttonId.replace('cameraOption', ''); // Remove the "cameraOption" prefix
+        return parseInt(numericPart); // Convert the numeric part to an integer
+    }
+
+    let currentCamera = "";
+
+    function openSelectedPresetMenu(cameraId) {
+        //console.log("Opening Menu for Camera: ", cameraId);
+        const allPresetLists = document.querySelectorAll('.preset-list-dynamic');
+        allPresetLists.forEach(presetList => {
+            presetList.style.display = "none";
+        });
+
+        const cameraSelected = document.getElementById(`cameraOption${cameraId}`);
+        if (cameraSelected) {
+            var iconElement = cameraSelected.querySelector('.forward-icon');
+
+            // Check if the icon element exists
+            if (iconElement) {
+                // Change the class of the icon element to "fa-caret-left"
+                iconElement.classList.remove('fa-caret-right');
+                iconElement.classList.add('fa-caret-left');
+            
+
+                // Hide all camera options
+                const allCameraOptions = document.querySelectorAll('.camera-list-dynamic');
+                allCameraOptions.forEach(cameraList => {
+                    cameraList.style.display = "none";
+                });
+
+                cameraSelected.style.display = "flex";       
+
+                // If a selected camera exists, display selected presets
+                const availablePresetsList = document.getElementById(`cameraId${cameraId}presets`);
+                if(availablePresetsList){
+                    availablePresetsList.style.display = "block";
+                }
+            }
+        }
+    }
+
+    function closeAllPresetMenus() {
+        const allPresetLists = document.querySelectorAll('.preset-list-dynamic');
+        allPresetLists.forEach(presetList => {
+            presetList.style.display = "none";
+        });
+
+        const allCameraOptions = document.querySelectorAll('.camera-list-dynamic');
+        allCameraOptions.forEach(cameraList => {
+            var iconElement = cameraList.querySelector('.forward-icon');
+            if (iconElement) {                
+                iconElement.classList.add('fa-caret-right');
+                iconElement.classList.remove('fa-caret-left');
+            }
+            cameraList.style.display = "flex";
+        });
+
+    }
+
+    function cameraSelected(e) {
+        const buttonId = e.target.id;
+        //console.log("Camera Selected...", buttonId);
+        if(currentCamera === buttonId) {
+            currentCamera = "";
+            closeAllPresetMenus();
+        } else {
+            currentCamera = buttonId;
+            openSelectedPresetMenu(extractCameraId(buttonId));
+        }        
+    }
+
+    function initializeDragAndDrop() {
+        // Got to be specific to this widgets button or will start listening to all .buttons
+        const buttons = document.querySelectorAll('.camera-list-dynamic');
+        //dragAndDropInstance.initialize(buttons);
+        buttons.forEach(button => {
+            button.addEventListener('click', cameraSelected);
+        });
     }
 
     /**
@@ -61,7 +212,6 @@ const cameraPresetsModule = (() => {
      */
     let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:cameraPresets-import-widget', (value) => {
         if (value['loaded']) {
-            onInit();
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:cameraPresets-import-page', loadedSubId);
                 loadedSubId = '';
@@ -75,6 +225,7 @@ const cameraPresetsModule = (() => {
     CrComLib.subscribeState('o', 'ch5-template:camera-presets-widget', (value) => {
         if (value['loaded'] !== undefined && value['id'] !== undefined) {
             if (value.loaded) {
+                onInit();
                 widgetInstances[value.id] = cameraPresetsInstanceModule(value.id, value['elementIds']);
             }
             else {
