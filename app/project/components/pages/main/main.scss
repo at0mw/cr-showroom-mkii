@@ -257,11 +257,11 @@
 		border-radius: 50%;
 		position: absolute;
 		top: 50%;
-		background-color: #424242;
+		background-color: $onPrimaryColour;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: #ffffff;
+		color: $onSecondaryColour;
 		z-index: 2;
 		box-shadow: 0 0 12px black;
 	}

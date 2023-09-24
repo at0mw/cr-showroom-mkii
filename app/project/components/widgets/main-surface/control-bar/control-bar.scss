@@ -23,7 +23,8 @@
 
 	.logo-area {
 		display: flex;
-		opacity: 40%;
+		opacity: 50%;
+		padding: 0 $standardInElementPadding;
 	}
 
 	.logo-text {
@@ -95,30 +96,4 @@
 		margin-right: 4vmin;
 		// color: $iconTextColour;
 	}
-
-	.volume-slider_thumb {
-		width: 5vmin;
-		height: 5vmin;
-		border: 0.4vmin solid #303030ba;
-		border-radius: 50%;
-		position: absolute;
-		left: 0;
-		top: 50%;
-		opacity: 1;
-		transform: translateY(-50%) translateX(-50%);
-		background-color: #424242; //e8;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-weight: 700;
-		font-size: small;
-		color: #ffffff;
-		z-index: 2;
-		//backdrop-filter: $bgBlur;
-		//box-shadow: $fgContainerShadow;
-	}
-
-	// .volume-slider {
-	// 	width: 40vmin;
-	// }
 }
