@@ -11,8 +11,38 @@
 
 <template id="control-bar-widget"> 
     <div class="control-bar-widget" aria-labelledby="Control Bar"> 
-    <!-- BEGIN::CHANGEAREA - your widget html markup goes here --> 
-
-    <!-- END::CHANGEAREA -->
+            <div class="footer-container">
+              <div class="column left-column">
+                <div class="miccontrols">
+                <i id="micMute" class="micmute-icon footer-icon fas fa-microphone-slash"></i>
+                <i id="mics" class="standard-footer-icon footer-icon fas fa-caret-up"></i>
+                </div>
+                <div class="logo-area">
+                  <h2 class="logo-text">powered by</h2>
+                  <img class="logo" src="./app/template/assets/img/proAV-logo-transparent.png" alt="Logo">
+                </div>
+              </div>
+              <div class="column right-column">
+                <div class="volcontrols">
+                  <i id="volMute" class="volmute-icon footer-icon fas fa-volume-xmark"></i>
+                  <i id="volDown" class="standard-footer-icon"></i>
+      
+                  <div class="volume-slider">
+                    <div class="slider-input-area">
+                      <div class="range-slider">
+                          <div id="volume-thumb" class="volume-slider_thumb scalable">
+                            <div class="thumb-text"></div>
+                          </div>
+                          <div class="range-slider_line">
+                            <div id="volume-line" class="range-slider_line-fill"></div>
+                          </div>
+                          <input id="volume-input" class="range-slider_input" type="range" value="0" min="0" max="100">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- <ch5-template templateid="mic-overlay-widget"></ch5-template> -->
     </div>
 </template>

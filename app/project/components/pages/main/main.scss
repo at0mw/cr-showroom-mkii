@@ -60,7 +60,7 @@
 		height: $boxButtonSize;
 		width: $boxButtonSize;
 		margin: $elementSpacing;
-		padding: $moduleSpacing;
+		padding: $standardInElementPadding;
 		align-items: start;
 		justify-content: space-between;
 		flex-direction: column;
@@ -74,7 +74,6 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: 50%;
-		//background: $concaveElementGradientDark;
 	}
 
 	.content-area {
@@ -88,10 +87,6 @@
 	}
 
 	.ui-control-area {
-		// flex: 1;
-		// min-width: 45%;
-		// height: 600px;
-		// width: 400px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
@@ -155,7 +150,7 @@
 
 	.menu-button {
 		height: $standardButtonHeight;
-		width: 100px;
+		width: 45%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -182,6 +177,7 @@
 
 		.preset-box-container {
 			width: 90%;
+			margin: auto;
 		}
 
 		.slider-input-area {
@@ -349,7 +345,7 @@
 	}
 
 	.highlighted {
-		border: 2px solid #ffffff;
+		//border: 2px solid #ffffff;
 		transform: scale(1.2);
 		animation: wiggle 0.3s infinite;
 		transform-origin: center;
