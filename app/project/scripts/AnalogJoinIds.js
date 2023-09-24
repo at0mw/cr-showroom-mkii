@@ -1,14 +1,20 @@
 const analogJoins = (() => {
-  const LightingInputBrightness = "38";
-  const LightingInputBrightnessFb = "39";
+  const ControlBarVolume = "1";
+  const ControlBarVolumeFb = "2";
 
   const SourceModeButton = "11";
   const SourceModeButtonFb = "12";
-  return {
+
+  const LightingInputBrightness = "38";
+  const LightingInputBrightnessFb = "39";
+
+  return {    
+    ControlBarVolume,
+    ControlBarVolumeFb,
     SourceModeButton,
     SourceModeButtonFb,
     LightingInputBrightness,
-    LightingInputBrightnessFb
+    LightingInputBrightnessFb,
   };
 
 })();
