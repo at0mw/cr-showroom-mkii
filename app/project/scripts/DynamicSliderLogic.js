@@ -97,7 +97,7 @@ class DynamicSliderLogic {
                 const sliderHtml = `
                     <div class="slider-input-area">
                         <div class="icon-circle">
-                            <i class="fa-regular fa-caret-left shade-arrow ${this.htmlIdPrefix}-down-action" id="${this.htmlIdPrefix}-down:${slider.id}"></i>
+                            <i class="fa-regular fa-angle-left shade-arrow ${this.htmlIdPrefix}-down-action" id="${this.htmlIdPrefix}-down:${slider.id}"></i>
                         </div>
                         <div class="range-slider">
                             <div id="${this.htmlIdPrefix}-thumb:${slider.id}" class="${this.htmlIdPrefix}-range-slider_thumb shade-slider-thumb range-slider_thumb  slider-scalable">
@@ -109,7 +109,7 @@ class DynamicSliderLogic {
                             <input id="${this.htmlIdPrefix}-input:${slider.id}" class="${this.htmlIdPrefix}-range-slider_input range-slider_input" type="range" value="0" min="0" max="100">
                         </div>                        
                         <div class="icon-circle">
-                            <i class="fa-regular fa-caret-right shade-arrow ${this.htmlIdPrefix}-up-action" id="${this.htmlIdPrefix}-up:${slider.id}"></i>
+                            <i class="fa-regular fa-angle-right shade-arrow ${this.htmlIdPrefix}-up-action" id="${this.htmlIdPrefix}-up:${slider.id}"></i>
                         </div>
                     </div>`;
 

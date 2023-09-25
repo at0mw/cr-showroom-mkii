@@ -2,7 +2,7 @@
 	"cues": [
 		{"type": "s", "event": "24", "trigger": "&change",  
 		"actions": [{"type": "s", "state": "25","logic": "link"}]},
-		{"type": "b", "event": "52", "trigger": true,  
+		{"type": "b", "event": "54", "trigger": true,  
 		"actions": 
 		[
 		  {"type": "s", "state": "25","logic": "set", "value": "{ \"id\": 1, \"shadevalue\": 0 }" },
@@ -12,7 +12,7 @@
 		  {"type": "s", "state": "25","logic": "set", "value": "{ \"id\": 5, \"shadevalue\": 0 }" },
 		  {"type": "s", "state": "25","logic": "set", "value": "{ \"id\": 6, \"shadevalue\": 0 }" }
 		]},
-		{"type": "b", "event": "53", "trigger": true,  
+		{"type": "b", "event": "55", "trigger": true,  
 		"actions": 
 		[
 		  {"type": "s", "state": "25","logic": "set", "value": "{ \"id\": 1, \"shadevalue\": 100 }" },
