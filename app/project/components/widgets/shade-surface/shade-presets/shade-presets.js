@@ -11,54 +11,52 @@
 /*jslint es6 */
 /*global serviceModule, CrComLib */
 
-const lightingPresetsInstanceModule = (id, elementIds) => {
-	'use strict';
+const shadePresetsInstanceModule = (id, elementIds) => {
+    'use strict';    
 
-	// BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here
-	// console.log(`lightingPresets-widget lightingPresetsInstanceModule("${id}", [${elementIds}])`);
+    // BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here  
+    // console.log(`shadePresets-widget shadePresetsInstanceModule("${id}", [${elementIds}])`);
 
-	// choose one of the below
-	// -- id is container element added around template content
-	// -- elementIds[0] is the first element found in the template content
-	// -- in shell template, elementIds[0] is usually the right choice
-	// const instance = document.getElementById(id);
-	const instance = document.getElementById(elementIds[0]);
+    // choose one of the below 
+    // -- id is container element added around template content
+    // -- elementIds[0] is the first element found in the template content
+    // -- in shell template, elementIds[0] is usually the right choice
+    // const instance = document.getElementById(id);
+    const instance = document.getElementById(elementIds[0]);
 
-	// Your code for when widget instance removed from DOM here
-	const cleanup = () => {
-		// console.log(`lightingPresets-widget lightingPresetsInstanceModule cleanup("${id}")`);
-	};
+    // Your code for when widget instance removed from DOM here
+    const cleanup = () => {
+        // console.log(`shadePresets-widget shadePresetsInstanceModule cleanup("${id}")`);
+    };
 
-	// Your code changing public interface to instance module here
-	return {
-		id,
-		elementIds,
-		instance,
-		cleanup
-	};
+    // Your code changing public interface to instance module here 
+    return {
+        id,
+        elementIds,
+        instance,
+        cleanup
+    };
 
-	// END::CHANGEAREA
-};
+    // END::CHANGEAREA  
+} 
 
-const lightingPresetsModule = (() => {
-	'use strict';
+const shadePresetsModule = (() => {
+    'use strict';
 
-	// BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here
+    // BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here  
+   
+    const widgetInstances = {};
 
-	const widgetInstances = {};
-
-	/**
+    /**
      * Initialize Method
      */
-	function onInit() {
-		//    serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/lighting-presets/lighting-presets-emulator.json");
-		// Uncomment the below line and comment the above to load the emulator all the time.
-		serviceModule.addEmulatorScenario(
-			'./app/project/components/widgets/lighting-surface/lighting-presets/lighting-presets-emulator.json'
-		);
-	}
+    function onInit() {
+    //    serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/shade-surface/shade-presets/shade-presets-emulator.json");
+       // Uncomment the below line and comment the above to load the emulator all the time.
+       serviceModule.addEmulatorScenario("./app/project/components/widgets/shade-surface/shade-presets/shade-presets-emulator.json");
+    }
 
-	function onAddition() {
+    function onAddition() {
 		const listBackButtonElement = document.getElementById(backButtonId);
 		const listForwardButtonElement = document.getElementById(forwardButtonId);
 		if (!presetManager) {
@@ -116,14 +114,14 @@ const lightingPresetsModule = (() => {
 		};
 		const jsonCreatePresetMessageString = JSON.stringify(createPresetMessage);
 
-		sendSignal.sendSerialSignal(serialJoins.LightingPresetCreate, jsonCreatePresetMessageString);
+		sendSignal.sendSerialSignal(serialJoins.ShadeControlCreatePreset, jsonCreatePresetMessageString);
 	}
 
-	const backButtonId = 'lighting-back-button';
-	const forwardButtonId = 'lighting-forward-button';
-	const addButtonId = 'lighting-add-button';
-	const createPresetButtonId = 'lighting-create-button';
-	const htmlIdPrefix = 'lighting';
+	const backButtonId = 'shade-back-button';
+	const forwardButtonId = 'shade-forward-button';
+	const addButtonId = 'shade-add-button';
+	const createPresetButtonId = 'shade-create-button';
+	const htmlIdPrefix = 'shade';
 	const itemsPerPage = 5;
 	let presetManager;
 
@@ -148,7 +146,7 @@ const lightingPresetsModule = (() => {
 		};
 		const jsonSelectMessageString = JSON.stringify(jsonSelectMessage);
 
-		sendSignal.sendSerialSignal(serialJoins.LightingPresetSelect, jsonSelectMessageString);
+		sendSignal.sendSerialSignal(serialJoins.ShadeControlPresetSelect, jsonSelectMessageString);
 	}
 
 	function handlePresetDeleted(event) {
@@ -160,7 +158,7 @@ const lightingPresetsModule = (() => {
 		};
 		const jsonDeleteMessageString = JSON.stringify(jsonDeleteMessage);
 
-		sendSignal.sendSerialSignal(serialJoins.LightingPresetSelect, jsonDeleteMessageString);
+		sendSignal.sendSerialSignal(serialJoins.ShadeControlPresetSelect, jsonDeleteMessageString);
 	}
 
 	function handlePresetReorder(event) {
@@ -173,7 +171,7 @@ const lightingPresetsModule = (() => {
 		};
 		const jsonReorderMessageString = JSON.stringify(jsonReorderMessage);
 
-		sendSignal.sendSerialSignal(serialJoins.LightingPresetReorder, jsonReorderMessageString);
+		sendSignal.sendSerialSignal(serialJoins.ShadeControlPresetReorder, jsonReorderMessageString);
 	}
 
 	function isValidShadePresetConfig(obj) {
@@ -209,48 +207,50 @@ const lightingPresetsModule = (() => {
 		}
 	}
 
-	// === Subscribe to Lighting Preset Feedback and Handle ===
-	const lightingPresetConfigSubscription = CrComLib.subscribeState('s', serialJoins.LightingPresetsConfig, (value) => {
-		console.log('Feedback CrComLib :::: String Join ', serialJoins.LightingPresetsConfig, ' ::: Value :: ', value);
+	// === Subscribe to Shade Slider Preset Feedback and Handle ===
+	const shadePresetConfigSubscription = CrComLib.subscribeState('s', serialJoins.ShadeControlPresetConfig, (value) => {
+		console.log('Feedback CrComLib :::: String Join ', serialJoins.ShadeControlPresetConfig, ' ::: Value :: ', value);
 		parsePresetConfigJsonString(value);
 	});
 
-	/**
+    /**
      * private method for widget class creation
      */
-	let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:lightingPresets-import-widget', (value) => {
-		if (value['loaded']) {
-			setTimeout(() => {
-				CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:lightingPresets-import-page', loadedSubId);
-				loadedSubId = '';
-			});
-		}
-	});
+    let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:shadePresets-import-widget', (value) => {
+        if (value['loaded']) {
+            setTimeout(() => {
+                CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:shadePresets-import-page', loadedSubId);
+                loadedSubId = '';
+            });
+        }
+    });
 
-	/**
+    /**
      * private method for widget instance addition and removal
      */
-	CrComLib.subscribeState('o', 'ch5-template:lighting-presets-widget', (value) => {
-		if (value['loaded'] !== undefined && value['id'] !== undefined) {
-			if (value.loaded) {
-				onInit();
-				onAddition();
-				widgetInstances[value.id] = lightingPresetsInstanceModule(value.id, value['elementIds']);
-			} else {
-				const removedInstance = widgetInstances[value.id];
-				if (removedInstance) {
-					removedInstance.cleanup();
-					delete widgetInstances[value.id];
-				}
-			}
-		}
-	});
-	/**
+    CrComLib.subscribeState('o', 'ch5-template:shade-presets-widget', (value) => {
+        if (value['loaded'] !== undefined && value['id'] !== undefined) {
+            if (value.loaded) {
+                onInit();
+                onAddition();
+                widgetInstances[value.id] = shadePresetsInstanceModule(value.id, value['elementIds']);
+            }
+            else {
+                const removedInstance = widgetInstances[value.id];
+                if (removedInstance) {
+                    removedInstance.cleanup();
+                    delete widgetInstances[value.id];
+                }
+            }
+        }
+    });
+    /**
      * All public method and properties are exported here
      */
-	return {
-		widgetInstances
-	};
+    return {
+        widgetInstances
+    };
 
-	// END::CHANGEAREA
+    // END::CHANGEAREA   
+
 })();

@@ -15,8 +15,10 @@ const digitalJoins = (() => {
     const CameraControlRsLrUp = "52";
     const CameraControlRsLrDown = "53";
 
-    const ShadeControlAllOpen = "52";
-    const ShadeControlAllClose = "53";
+    const ShadeControlAllOpen = "54";
+    const ShadeControlAllClose = "55";
+
+    const AirMediaDisconnectUsers = "56";
 
   return {
     // Control Bar Module
@@ -34,7 +36,9 @@ const digitalJoins = (() => {
     CameraControlRsLrDown,
     // Shade Control Module
     ShadeControlAllOpen,
-    ShadeControlAllClose
+    ShadeControlAllClose,
+    
+    AirMediaDisconnectUsers
   };
 
 })();

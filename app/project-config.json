@@ -199,6 +199,16 @@
         "widgetName": "cameraPresets",
         "fullPath": "./app/project/components/widgets/camera-surface/camera-presets/",
         "fileName": "camera-presets.html"
+      },
+      {
+        "widgetName": "shadePresets",
+        "fullPath": "./app/project/components/widgets/shade-surface/shade-presets/",
+        "fileName": "shade-presets.html"
+      },
+      {
+        "widgetName": "shadeInputs",
+        "fullPath": "./app/project/components/widgets/shade-surface/shade-inputs/",
+        "fileName": "shade-inputs.html"
       }
     ]
   }

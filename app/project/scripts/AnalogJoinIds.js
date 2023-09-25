@@ -8,6 +8,8 @@ const analogJoins = (() => {
   const LightingInputBrightness = "38";
   const LightingInputBrightnessFb = "39";
 
+  const AirMediaUserFb = "22";
+
   return {    
     ControlBarVolume,
     ControlBarVolumeFb,
@@ -15,6 +17,7 @@ const analogJoins = (() => {
     SourceModeButtonFb,
     LightingInputBrightness,
     LightingInputBrightnessFb,
+    AirMediaUserFb
   };
 
 })();

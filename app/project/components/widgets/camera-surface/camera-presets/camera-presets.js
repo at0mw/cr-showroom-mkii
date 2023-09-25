@@ -102,7 +102,7 @@ const cameraPresetsModule = (() => {
             <div class="list-button button camera-list-dynamic" id="cameraOption${camera.id}">
                 <div class="camera-label unclickable">
                     <div class="list-button-text">${camera.cameraLabel}</div>
-                    <i class="forward-icon fa-solid fa-caret-right"></i>
+                    <i class="forward-icon fa-regular fa-caret-right"></i>
                 </div>
             </div>
         `;

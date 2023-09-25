@@ -1,4 +1,11 @@
 {
-  "cues": [],
-  "onStart": []
+  "cues": [
+    {"type": "b", "event": "56", "trigger": "&change",  
+    "actions": [{"type": "n", "state": "22","logic": "set", "value": 0}]}
+  ],
+  "onStart": [
+    {"type":"n","state":"22", "value": 3},
+    {"type":"s","state":"41", "value": "10.100.23.215"},
+    {"type":"s","state":"42", "value": "0800"}
+  ]
 }

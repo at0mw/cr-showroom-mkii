@@ -166,7 +166,7 @@ const surfaceMenuModule = (() => {
 	window.addEventListener('touchend', handleTouchEnd);
 
 	function createSurfaceMenu(surfaceConfig) {
-		console.log('Time to create surface menu!');
+		//console.log('Time to create surface menu!');
 		let concatentateSurfaceHtml = '';
 		const dynamicSurfaceContainer = document.getElementById('dynamic-surface-container');
 
@@ -267,7 +267,7 @@ const surfaceMenuModule = (() => {
      * private method for widget class creation
      */
 	let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:surfaceMenu-import-widget', (value) => {
-		console.log("Surface menu widget created now!");
+		//console.log("Surface menu widget created now!");
 		if (value['loaded']) {
 			setTimeout(() => {
 				CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:surfaceMenu-import-page', loadedSubId);
@@ -280,7 +280,7 @@ const surfaceMenuModule = (() => {
      * private method for widget instance addition and removal
      */
 	CrComLib.subscribeState('o', 'ch5-template:surface-menu-widget', (value) => {
-		console.log("Surface menu widget loaded/removed now!");
+		//console.log("Surface menu widget loaded/removed now!");
 		if (value['loaded'] !== undefined && value['id'] !== undefined) {
 			if (value.loaded) {
 				onInit();

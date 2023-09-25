@@ -1,10 +1,69 @@
 {
-  "cues": [],
+  "cues": [
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"1\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#ff7b00" },
+      {"type": "n", "state": "39","logic": "set", "value": 20 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"2\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#3f20d9" },
+      {"type": "n", "state": "39","logic": "set", "value": 34 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"3\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#5c9348" },
+      {"type": "n", "state": "39","logic": "set", "value": 56 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"4\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#ff6600" },
+      {"type": "n", "state": "39","logic": "set", "value": 80 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"5\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#00ffe1" },
+      {"type": "n", "state": "39","logic": "set", "value": 26 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"6\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#00ffe1" },
+      {"type": "n", "state": "39","logic": "set", "value": 86 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"7\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#c32222" },
+      {"type": "n", "state": "39","logic": "set", "value": 45 }
+    ]},
+    {"type": "s", "event": "4", "trigger": "{\"id\":\"8\",\"action\":1}",  
+    "actions": 
+    [
+      {"type": "s", "state": "37","logic": "set", "value": "#6eee5d" },
+      {"type": "n", "state": "39","logic": "set", "value": 20 }
+    ]}
+],
   "onStart": [
     {
       "type": "s", 
       "state": "2", 
-      "value":"[{ \"id\": 1, \"label\": \"75%\", \"order\": 1 },{ \"id\": 2, \"label\": \"60%\", \"order\": 2 },{ \"id\": 3, \"label\": \"Descending\", \"order\": 3 },{ \"id\": 4, \"label\": \"Ascending\", \"order\": 4 },{ \"id\": 5, \"label\": \"1%\", \"order\": 5 },{ \"id\": 6, \"label\": \"Chaos\", \"order\": 6 },{ \"id\": 7, \"label\": \"Order\", \"order\": 7 },{ \"id\": 8, \"label\": \"99%\", \"order\": 8 }]"
-    } 
+      "value":"[{ \"id\": 1, \"label\": \"Autumn Flux\", \"order\": 1 },{ \"id\": 2, \"label\": \"Dreamy Dusk\", \"order\": 2 },{ \"id\": 3, \"label\": \"Rolling Hills Long Name\", \"order\": 3 },{ \"id\": 4, \"label\": \"Warm Embrace\", \"order\": 4 },{ \"id\": 5, \"label\": \"Arctic Aurora\", \"order\": 5 },{ \"id\": 6, \"label\": \"Cold Front\", \"order\": 6 },{ \"id\": 7, \"label\": \"Christmas in March\", \"order\": 7 },{ \"id\": 8, \"label\": \"Its Quiet...\", \"order\": 8 },{ \"id\": 9, \"label\": \"Too Quiet...\", \"order\": 9 }]"
+    },
+    {
+      "type": "n", 
+      "state": "39",
+      "value": 80 
+    },    
+    {
+      "type": "s",
+      "state": "37", 
+      "value": "#6eee5d" 
+    }
   ]
 }

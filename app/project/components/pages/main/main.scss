@@ -87,6 +87,10 @@
 		margin: auto;
 	}
 
+	// .main-ui-control-area {
+	// 	flex:1;
+	// }
+
 	.ui-control-area-overlay {
 		position: absolute;
 		top: 0;
@@ -137,7 +141,9 @@
 	.menu-button-space {
 		display: flex;
 		justify-content: space-between;
-		margin: auto;
+		// margin: auto;
+		// min-width: 360px;
+		width: 100%;
 	}
 
 	.menu-button {
@@ -220,7 +226,7 @@
 		z-index: 3;
 		transform: translateY(-50%);
 		appearance: none;
-		width: 100%;
+		width: 320px;
 		opacity: 0;
 	}
 
