@@ -1,0 +1,25 @@
+<template id="settings-control-widget"> 
+    <div class="settings-control-widget" aria-labelledby="Settings Control"> 
+        <div class="top-bar">
+            <div class="tab-container">          
+                <div class="segmented-control">      
+                  <input type="radio" name="settings-radio" value="1" id="tab-1" checked/>
+                  <label for="tab-1" class= "segmented-control__1">
+                    <h5>Device Status</h5></label>                  
+                  <input type="radio" name="settings-radio" value="2" id="tab-2" />
+                  <label for="tab-2" class= "segmented-control__2">
+                    <h5>Log</h5></label>                  
+                  <input type="radio" name="settings-radio" value="3" id="tab-3" />
+                  <label for="tab-3" class= "segmented-control__3">
+                    <h5>UC Engines</h5></label>                  
+                  <div class="segmented-control__color"></div>
+               </div>   
+            </div>
+        </div>
+        <div class="display-area">
+            <ch5-template templateid="settings-device-status-widget" id="settings-device-status"></ch5-template>
+            <ch5-template templateid="settings-log-widget" id="settings-log"></ch5-template>
+            <ch5-template templateid="settings-uc-engines-widget" id="settings-uc-engines"></ch5-template>
+        </div>
+    </div>
+</template>

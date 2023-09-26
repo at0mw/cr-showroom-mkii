@@ -209,6 +209,26 @@
         "widgetName": "shadeInputs",
         "fullPath": "./app/project/components/widgets/shade-surface/shade-inputs/",
         "fileName": "shade-inputs.html"
+      },
+      {
+        "widgetName": "settingsControl",
+        "fullPath": "./app/project/components/widgets/settings-surface/settings-control/",
+        "fileName": "settings-control.html"
+      },
+      {
+        "widgetName": "settingsDeviceStatus",
+        "fullPath": "./app/project/components/widgets/settings-surface/settings-device-status/",
+        "fileName": "settings-device-status.html"
+      },
+      {
+        "widgetName": "settingsLog",
+        "fullPath": "./app/project/components/widgets/settings-surface/settings-log/",
+        "fileName": "settings-log.html"
+      },
+      {
+        "widgetName": "settingsUcEngines",
+        "fullPath": "./app/project/components/widgets/settings-surface/settings-uc-engines/",
+        "fileName": "settings-uc-engines.html"
       }
     ]
   }
