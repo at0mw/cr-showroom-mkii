@@ -20,6 +20,10 @@ const digitalJoins = (() => {
 
     const AirMediaDisconnectUsers = "56";
 
+    const FlipTopsRetract1 = "20";
+    const FlipTopsRetract2 = "21";
+    const FlipTopsRetract3 = "22";
+
   return {
     // Control Bar Module
     ControlBarVolumeMute,
@@ -38,7 +42,11 @@ const digitalJoins = (() => {
     ShadeControlAllOpen,
     ShadeControlAllClose,
     
-    AirMediaDisconnectUsers
+    AirMediaDisconnectUsers,
+
+    FlipTopsRetract1,
+    FlipTopsRetract2,
+    FlipTopsRetract3
   };
 
 })();

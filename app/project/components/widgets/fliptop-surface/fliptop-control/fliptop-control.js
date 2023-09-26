@@ -56,12 +56,71 @@ const fliptopControlModule = (() => {
        // serviceModule.addEmulatorScenario("./app/project/components/widgets/fliptop-control/fliptop-control-emulator.json");
     }
 
+    function setupStatic() {
+        setupStaticButtons();          
+    }
+
+    function setupStaticButtons() {
+        //console.log("Attempting to find Retract Buttons:");
+        const retractButtons = document.querySelectorAll('.retract-button');
+        retractButtons.forEach(button => {
+            //console.log("Adding Listeners to Retract Buttons!!!!!");
+            //button.addEventListener('click', handleNothing);
+            button.addEventListener('mousedown', handleRetractAction);
+            button.addEventListener('touchstart', handleRetractAction);
+
+            button.addEventListener('mouseup', handleStopAction);
+            button.addEventListener('touchend', handleStopAction);
+          });
+    }
+
+    function handleNothing() {
+        console.log("Does this trigger active?");
+    }
+
+    function handleRetractAction(event) {
+        //console.log("Handle Retract...");
+        //event.preventDefault();
+        const buttonTextId = event.target.id.split(':');
+        if (buttonTextId.length > 1 && !isNaN(buttonTextId[1])) {
+            const buttonNumId = parseInt(buttonTextId[1], 10);
+            retract(buttonNumId, true);
+        } else {
+            console.error('Source Button has returned invalid source id');
+        }
+    }
+
+    function handleStopAction(event) {
+        //console.log("Handle Stop Retract...");
+        event.preventDefault();
+        const buttonTextId = event.target.id.split(':');
+        if (buttonTextId.length > 1 && !isNaN(buttonTextId[1])) {
+            const buttonNumId = parseInt(buttonTextId[1], 10);
+            retract(buttonNumId, false);
+        } else {
+            console.error('Source Button has returned invalid source id');
+        }
+    }
+
+    function retract(id, state) {
+        switch(id) {
+            case 1:
+                sendSignal.sendDigitalSignal(digitalJoins.FlipTopsRetract1, state);
+                break;
+            case 2:
+                sendSignal.sendDigitalSignal(digitalJoins.FlipTopsRetract2, state);
+                break;
+            case 3:
+                sendSignal.sendDigitalSignal(digitalJoins.FlipTopsRetract3, state);
+                break;
+        }
+    }
+
     /**
      * private method for widget class creation
      */
     let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:fliptopControl-import-widget', (value) => {
         if (value['loaded']) {
-            onInit();
             setTimeout(() => {
                 CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:fliptopControl-import-page', loadedSubId);
                 loadedSubId = '';
@@ -75,6 +134,8 @@ const fliptopControlModule = (() => {
     CrComLib.subscribeState('o', 'ch5-template:fliptop-control-widget', (value) => {
         if (value['loaded'] !== undefined && value['id'] !== undefined) {
             if (value.loaded) {
+                onInit();
+                setupStatic();
                 widgetInstances[value.id] = fliptopControlInstanceModule(value.id, value['elementIds']);
             }
             else {

@@ -244,7 +244,7 @@ const surfaceMenuModule = (() => {
 	function parseSurfaceConfigJson(receivedConfig) {
 		const jsonList = JSON.parse(receivedConfig);
 		if (isValidJsonList(jsonList)) {
-			console.log('Valid Json Config');
+			//console.log('Valid Json Config');
 			return jsonList;
 		}
 		return null;

@@ -97,13 +97,13 @@ const lightingPresetsModule = (() => {
 	}
 
 	function addPreset() {
-		console.log('Add Preset');
+		//console.log('Add Preset');
 		const addPresetOverlay = document.getElementById('menu-button-overlay');
 		addPresetOverlay.style.display = 'flex';
 	}
 
 	function createPreset() {
-		console.log('Creating Preset');
+		//console.log('Creating Preset');
 		const addPresetOverlay = document.getElementById('menu-button-overlay');
 		addPresetOverlay.style.display = 'none';
 
@@ -141,7 +141,7 @@ const lightingPresetsModule = (() => {
 	const presetDeleteEnum = 2;
 	function handlePresetSelected(event) {
 		const presetId = event.detail.presetId;
-		console.log('Preset Selected :: Preset Id: ', presetId);
+		//console.log('Preset Selected :: Preset Id: ', presetId);
 		let jsonSelectMessage = {
 			id: presetId,
 			action: presetSelectEnum
@@ -153,7 +153,7 @@ const lightingPresetsModule = (() => {
 
 	function handlePresetDeleted(event) {
 		const presetId = event.detail.presetId;
-		console.log('Preset Deleted :: Preset Id: ', presetId);
+		//console.log('Preset Deleted :: Preset Id: ', presetId);
 		let jsonDeleteMessage = {
 			id: presetId,
 			action: presetDeleteEnum
@@ -166,7 +166,7 @@ const lightingPresetsModule = (() => {
 	function handlePresetReorder(event) {
 		const presetId = event.detail.presetId;
 		const newOrder = event.detail.newOrder;
-		console.log('Preset Reordered :: Preset Id : ', presetId, ' New Order : ', newOrder);
+		//console.log('Preset Reordered :: Preset Id : ', presetId, ' New Order : ', newOrder);
 		let jsonReorderMessage = {
 			id: presetId,
 			neworder: newOrder

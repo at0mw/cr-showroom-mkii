@@ -87,8 +87,9 @@ const statusBarModule = (() => {
     * Initialise subscribers for Events from CrComLib
     */
     const modeSubscription = CrComLib.subscribeState('n', analogJoins.SourceModeButtonFb, (value) => {
-        console.log("Feedback CrComLib :::: Custom Header ::: Receiving Mode Feedback :: Value: ", value);
-        updateHeaderDisplay(value);
+        // TODO - Wire it as needed
+        //console.log("Feedback CrComLib :::: Custom Header ::: Receiving Mode Feedback :: Value: ", value);
+        //updateHeaderDisplay(value);
       });
 
 	/**

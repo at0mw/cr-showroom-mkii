@@ -143,7 +143,7 @@ class DynamicListMenuLogic {
       const startIndex = this.currentPageFirstItemIndex();
       let numberOfPresetsToRetrieve = this.itemsPerPage;
       if (reorderMode) {
-        console.log("Reorder mode active...");
+        //console.log("Reorder mode active...");
         numberOfPresetsToRetrieve--;
       }
       let presetsForPage = this.getPresetsForPage(
@@ -152,7 +152,7 @@ class DynamicListMenuLogic {
         ignoredElementId
       );
       if (reorderMode) {
-        console.log("Page Preset Html: ", presetsForPage);
+        //console.log("Page Preset Html: ", presetsForPage);
       }
       this.dynamicListContainer.innerHTML = "";
       this.dynamicListContainer.insertAdjacentHTML("beforeend", presetsForPage);
@@ -307,7 +307,7 @@ class DynamicListMenuLogic {
     Perform a default press for the list button... To be ignored in edge cases such as page reshuffle before press end.
   */
   performPress(button) {
-    console.log("Perform Press...");
+    //console.log("Perform Press...");
     if (!this.dontPerformPress) {
       this.presetSelected(button);
     }
@@ -432,7 +432,7 @@ class DynamicListMenuLogic {
     This method is used to notify that a preset has been selected.
   */
   listReordered(presetId, insertIndex) {
-    console.log("HERE WE ARE");
+    //console.log("HERE WE ARE");
     const presetIdNum = this.extractNumberFromId(presetId);
     if (presetIdNum) {
       const event = new CustomEvent("presetReordered", {
@@ -455,7 +455,7 @@ class DynamicListMenuLogic {
   trashIconSelected(event) {
     event.stopPropagation();
     const presetId = event.target.id;
-    console.log("Trash Icon Selected...")
+    //console.log("Trash Icon Selected...")
     const presetIdNum = this.extractNumberFromId(presetId);
     if(presetIdNum) {
       const event = new CustomEvent("presetDeleted", {
@@ -498,7 +498,7 @@ class DynamicListMenuLogic {
     const dynamicMenu = document.getElementById(this.dynamicMenuId);
 
     if (targetButton && dynamicMenu && dynamicMenu.contains(targetButton)) {
-      console.log("Dragging updates...", targetButton.id);
+      //console.log("Dragging updates...", targetButton.id);
       if (
         targetButton.classList.contains("list-button") &&
         targetButton !== this.activeButton
@@ -620,7 +620,7 @@ class DynamicListMenuLogic {
     This will trigger when a button is dragged to the specified area which enables reordering the item to the previous page.
   */
   reorderHighlightedBack() {
-    console.log("Moving backwards?");
+    //console.log("Moving backwards?");
     this.decrementPage();
     this.retrieveNewPageandInsertHtml(true, this.activeButton.id);
     //this.subscribeToEvents();
@@ -630,7 +630,7 @@ class DynamicListMenuLogic {
     This will trigger when a button is dragged to the specified area which enables reordering the item to the next page.        
   */
   reorderHighlightedForward() {
-    console.log("Moving forwards?");
+    //console.log("Moving forwards?");
     this.incrementPage();
     this.retrieveNewPageandInsertHtml(true, this.activeButton.id);
     //this.subscribeToEvents();
@@ -775,7 +775,7 @@ class DynamicListMenuLogic {
       @returns {string} The HTML strings for the presets on the specified page concatenated.
     */
   getPresetsForPage(startIndex, itemsPerPage, dontIncludeId) {
-    console.log("Presets for page :: Dont Include: ", dontIncludeId);
+    //console.log("Presets for page :: Dont Include: ", dontIncludeId);
     let presetsArrayTempCopy = [...this.presetsArray];
     if (dontIncludeId) {
       presetsArrayTempCopy = presetsArrayTempCopy.filter(
@@ -788,7 +788,7 @@ class DynamicListMenuLogic {
       (a, b) => a.order - b.order
     );
     if(dontIncludeId) {
-      console.log("Temp Filtered Presets: ", presetsArrayTempCopy);
+      //console.log("Temp Filtered Presets: ", presetsArrayTempCopy);
     }
     // Extract only the HTML strings from presetsDictionary
     const htmlStrings = presetsArrayTempCopy
