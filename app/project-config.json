@@ -229,6 +229,26 @@
         "widgetName": "settingsUcEngines",
         "fullPath": "./app/project/components/widgets/settings-surface/settings-uc-engines/",
         "fileName": "settings-uc-engines.html"
+      },
+      {
+        "widgetName": "powerControl",
+        "fullPath": "./app/project/components/widgets/power-surface/power-control/",
+        "fileName": "power-control.html"
+      },
+      {
+        "widgetName": "homeControl",
+        "fullPath": "./app/project/components/widgets/home-surface/home-control/",
+        "fileName": "home-control.html"
+      },
+      {
+        "widgetName": "displayControl",
+        "fullPath": "./app/project/components/widgets/display-surface/display-control/",
+        "fileName": "display-control.html"
+      },
+      {
+        "widgetName": "matrixControl",
+        "fullPath": "./app/project/components/widgets/matrix-surface/matrix-control/",
+        "fileName": "matrix-control.html"
       }
     ]
   }

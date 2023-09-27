@@ -76,7 +76,7 @@ const settingsControlModule = (() => {
         const selectedValue = event.target.value;
             
         // You can now use the selectedValue to determine which radio button is selected
-        console.log(`Selected tab value: ${selectedValue}`);
+        //console.log(`Selected tab value: ${selectedValue}`);
         setAllHidden();
         switch(selectedValue) {
             case "1":
@@ -98,9 +98,9 @@ const settingsControlModule = (() => {
     }
 
     function setVisibleTab(deviceVisible, logVisible, ucVisible) {
-        console.log("Setting Device Visible ", deviceVisible);
-        console.log("Setting Log Visible ", logVisible);
-        console.log("Setting UC Visible ", ucVisible);
+        //console.log("Setting Device Visible ", deviceVisible);
+        //console.log("Setting Log Visible ", logVisible);
+        //console.log("Setting UC Visible ", ucVisible);
         if(deviceVisible) {
             deviceTab.style.display = 'block';
         } else if (logVisible) {

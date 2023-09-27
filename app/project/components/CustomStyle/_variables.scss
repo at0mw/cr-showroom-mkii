@@ -7,8 +7,9 @@ $errorColour: #ff2200;
 
 $backgroundColour: transparent; //#333333 //#FAFAFF
 $surfaceColour: rgba(155,155,155, 0.3);
-$raisedSurface: rgba(142,142,142);
+$raisedSurface: #FAFAFF;
 $elevatedSurfaceColour: darken($surfaceColour, 5%);
+$elevatedNavSurfaceColour: darken($surfaceColour, 20%);
 
 $surfaceBlur: blur(14px);
 //$navBarColour: #353b48;
@@ -22,6 +23,8 @@ $onSecondaryVariantColour: #FFFFFF;
 $onBackgroundColour: #FFFFFF;
 $onSurfaceColour: #FFFFFF;
 $onErrorColour: #000000;
+$onRaisedSurfaceColour: #000000;
+$onRaisedSurfaceDisabled: #8E8E8E;
 
 // Shadows
 $onBackgroundShadow: 5px 5px 10px #042d47, -5px -5px 10px #063d5f;
@@ -54,3 +57,5 @@ $boxButtonSize: 200px;
 $standardModuleWidth: 400px;
 $standardSliderLength: 320px;
 $standardInElementPadding: 20px;
+
+$contentResizePrimary: 1550px

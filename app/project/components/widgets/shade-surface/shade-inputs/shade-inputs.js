@@ -168,7 +168,7 @@ const shadeInputsModule = (() => {
 	}
 
 	function parseJsonSliderFeedback(shadeFeedbackJson) {
-		console.log('CrComLib :::: Receiving Slider Feedback Json: ', shadeFeedbackJson);
+		//console.log('CrComLib :::: Receiving Slider Feedback Json: ', shadeFeedbackJson);
 		if (shadeFeedbackJson && shadeFeedbackJson !== '') {
 			try {
 				const parsedObject = JSON.parse(shadeFeedbackJson);

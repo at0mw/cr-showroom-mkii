@@ -1,117 +1,119 @@
 @import '../../../CustomStyle/variables';
 
 .settings-control-widget {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    flex: 1;
+	.top-bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 10%;
+        min-height: 70px;
+		//background-color: magenta;
+		display: flex;
+		justify-content: center;
+		align-items: end;
+	}
 
-    .top-bar {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 15%;
-        //background-color: magenta;
-        display: flex;
-        justify-content: center;
-        align-items: end;
-    }
+	h5 {
+		margin: 0;
+		text-align: center;
+	}
 
-    .display-area {
-        position: absolute;
-        top: 15%;
-        left: 0;
-        width: 100%;
-        height: 80%;
-        //background-color: teal;
-    }
+	.tab-container {
+		background-color: $raisedSurface;
+		color: $onRaisedSurfaceColour;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-shadow: $onSurfaceNavShadow;
+		border-radius: $standardElementBorderRadius;
+		z-index: 3;
+	}
 
-    h5 {
-        margin: 0;
-        text-align: center;
-    }
+	.segmented-control {
+		grid-column: 3 / 4;
+		grid-row: 1 / 2;
+		width: 100%;
+		height: 100%;
+		//box-shadow: $onSurfaceNavShadow;
+		border-radius: $standardElementBorderRadius;
+		display: flex;
+		align-items: center;
+		position: relative;
+		color: $onRaisedSurfaceDisabled;
+		padding: 5px;
 
-    .tab-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: $onSurfaceNavShadow;;
-        border-radius: $standardElementBorderRadius;
-      }
-      
-      .segmented-control {
-        grid-column: 3 / 4;
-        grid-row: 1 / 2;
-        width: 100%;
-        height: 100%;
-        //box-shadow: $onSurfaceNavShadow;
-        border-radius: $standardElementBorderRadius;
-        display: flex;
-        align-items: center;
-        position: relative;   
-        color: $onPrimaryDisabled;
-        padding: 5px;
-      
-        input { display: none; }
-      
-        > input:checked + label {
-          transition: all .5s ease;
-          color: $onPrimaryColour;
-          border-style: none;
-          }
-      
-        &__1, &__2, &__3 {
-          width: 150px;
-          height: 60px;
-          font-size: 1.4rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          border-radius: $standardElementBorderRadius;
+		input {
+			display: none;
+		}
 
-          &:active { 
-            background-color: $primaryVariant;
-            color: $onPrimaryVariant; 
-            }
+		> input:checked + label {
+			transition: all .5s ease;
+			color: $onRaisedSurfaceColour;
+			border-style: none;
+		}
+
+		//&__0,
+		&__1,
+		&__2,
+		&__3 {
+			width: 150px;
+			height: 60px;
+			font-size: 1.4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			border-radius: $standardElementBorderRadius;
+
+			&:active {
+				background-color: $primaryVariant;
+				color: $onPrimaryVariant;
+			}
+		}
+
+		&_1 {
+			border-style: solid;
+		}
+
+		&__color {
+			position: absolute;
+			height: 60px;
+			width: 150px;
+			border-radius: 5px;
+			box-shadow: $onSurfacePressedShadow;
+			pointer-events: none;
+		}
+	}
+
+	// #tab-0:checked ~ .segmented-control__color {
+	// 	transform: translateX(0);
+	// 	transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	// }
+	#tab-1:checked ~ .segmented-control__color {
+		transform: translateX(0);
+		transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+	#tab-2:checked ~ .segmented-control__color {
+		transform: translateX(150px);
+		transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+	#tab-3:checked ~ .segmented-control__color {
+		transform: translateX(300px);
+		transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	#settings-uc-engines {
+		display: none;
+	}
+
+	#settings-log {
+		display: none;
+	}
+
+    @media (max-width: 1200px) {
+        .tab-container {
+            transform: scale(0.6);
         }
-
-        &_1 {
-            border-style: solid;
-
-        }
-      
-        &__color {
-          position: absolute;
-          height: 60px;
-          width: 150px;
-          border-radius: 5px;
-          box-shadow: $onSurfacePressedShadow;
-          pointer-events: none;
-        }
-      }
-      
-      #tab-1:checked ~ .segmented-control__color {
-        transform: translateX(0);
-        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      }
-      #tab-2:checked ~ .segmented-control__color {
-        transform: translateX(150px);
-        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      }
-      #tab-3:checked ~ .segmented-control__color {
-        transform: translateX(300px);
-        transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      }
-
-      #settings-uc-engines {
-        display: none;
-      }
-
-      #settings-log {
-        display: none;
-      }
+    }
 }

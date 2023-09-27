@@ -10,9 +10,22 @@
 -->
 
 <template id="settings-device-status-widget"> 
-    <div class="settings-device-status-widget" aria-labelledby="Settings Device Status"> 
-    <!-- BEGIN::CHANGEAREA - your widget html markup goes here --> 
-        Device Status
-    <!-- END::CHANGEAREA -->
+    <div class="settings-device-status-widget diverse-control-group" aria-labelledby="Settings Device Status"> 
+        <div class="ui-control-area">
+            <div id="device-status-area">
+                <h2>Device Status</h2>
+                <div class="display-area" id="device-status-container">
+                    <!-- Dynamic Device Status Here -->
+                </div>
+            </div>
+        </div>
+        <div class="ui-control-area">
+            <div id="ip-table-area">
+                <h2>IP Table</h2>
+                <div class="display-area" id="ip-table-container">
+                    <!-- Dynamic Device IP Table Here -->
+                </div>
+            </div>
+        </div>
     </div>
 </template>

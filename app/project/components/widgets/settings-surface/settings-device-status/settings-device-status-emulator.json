@@ -1,4 +1,15 @@
 {
   "cues": [],
-  "onStart": []
+  "onStart": [
+    {
+      "type": "s", 
+      "state": "44", 
+      "value":"[{ \"id\": 1, \"label\": \"A Device\" },{ \"id\": 2, \"label\": \"Another Device\" },{ \"id\": 3, \"label\": \"A Different Device\" },{ \"id\": 4, \"label\": \"Just A Device\" },{ \"id\": 5, \"label\": \"Device Again\" },{ \"id\": 6, \"label\": \"It's a Device\" },{ \"id\": 7, \"label\": \"Device\" },{ \"id\": 8, \"label\": \"Lots of Devices\" },{ \"id\": 9, \"label\": \"Finally the last Device\" }]"
+    },
+    {
+      "type": "s", 
+      "state": "46", 
+      "value":"[{ \"id\": 1, \"label\": \"A Device\" },{ \"id\": 2, \"label\": \"Another Device\" },{ \"id\": 3, \"label\": \"A Different Device\" },{ \"id\": 4, \"label\": \"Just A Device\" },{ \"id\": 5, \"label\": \"Device Again\" },{ \"id\": 6, \"label\": \"It's a Device\" },{ \"id\": 7, \"label\": \"Device\" },{ \"id\": 8, \"label\": \"Lots of Devices\" },{ \"id\": 9, \"label\": \"Finally the last Device\" }]"
+    }
+  ]
 }

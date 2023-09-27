@@ -24,6 +24,9 @@ const digitalJoins = (() => {
     const FlipTopsRetract2 = "21";
     const FlipTopsRetract3 = "22";
 
+    const SettingsLogClear = "57";
+    const SettingsLogSave = "58";
+
   return {
     // Control Bar Module
     ControlBarVolumeMute,
@@ -46,7 +49,11 @@ const digitalJoins = (() => {
 
     FlipTopsRetract1,
     FlipTopsRetract2,
-    FlipTopsRetract3
+    FlipTopsRetract3,
+    
+    SettingsLogClear,
+    SettingsLogSave,
+
   };
 
 })();

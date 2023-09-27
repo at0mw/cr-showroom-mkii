@@ -19,6 +19,12 @@ const serialJoins = (() => {
 	const AirMediaAddressFb = "41";
 	const AirMediaCodeFb = "42";
 
+	const SettingsLogFeedback = "43";
+	const SettingsDeviceStatusConfig = "44";
+	const SettingsDeviceStatusUpdate = "45";
+	const SettingsIpTableConfig = "46";
+	const SettingsIpTableUpdate = "47";
+
 	// I think all one serial join for 1 unit (use json to flesh out actions instead)
 	return {
 		// Shade Control Module
@@ -40,6 +46,11 @@ const serialJoins = (() => {
 		LightingPresetCreate,
 
 		AirMediaAddressFb,
-		AirMediaCodeFb
+		AirMediaCodeFb,
+		SettingsLogFeedback,
+		SettingsDeviceStatusConfig,
+		SettingsDeviceStatusUpdate,
+		SettingsIpTableConfig,
+		SettingsIpTableUpdate
 	};
 })();

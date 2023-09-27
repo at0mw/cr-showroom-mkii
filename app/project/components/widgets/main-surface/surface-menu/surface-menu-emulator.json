@@ -4,7 +4,7 @@
 		{
 			"type": "s",
 			"state": "6",
-			"value": "[{\"id\": 1, \"icon\": \"fa-regular fa-home\", \"templateId\":\"home-control-widget\"},{\"id\": 2, \"icon\": \"fa-regular fa-lightbulb\", \"templateId\":\"lighting-control-widget\"},{\"id\": 3, \"icon\": \"fa-regular fa-blinds\", \"templateId\":\"shade-control-widget\"},{\"id\": 4, \"icon\": \"fa-regular fa-circle-nodes\", \"templateId\":\"matrix-control-widget\"},{\"id\": 5, \"icon\": \"fa-regular fa-display\", \"templateId\":\"display-control-widget\"},{\"id\": 6, \"icon\": \"fa-regular fa-meter-bolt\", \"templateId\":\"power-control-widget\"},{\"id\": 7, \"icon\": \"fa-regular fa-gear\", \"templateId\":\"settings-control-widget\"},{\"id\": 8, \"icon\": \"fa-regular fa-signal\", \"templateId\":\"dsp-control-widget\"}]"
+			"value": "[{\"id\": 1, \"icon\": \"fa-regular fa-home\", \"templateId\":\"home-control-widget\"},{\"id\": 2, \"icon\": \"fa-regular fa-lightbulb\", \"templateId\":\"lighting-control-widget\"},{\"id\": 3, \"icon\": \"fa-regular fa-blinds\", \"templateId\":\"shade-control-widget\"},{\"id\": 4, \"icon\": \"fa-regular fa-circle-nodes\", \"templateId\":\"matrix-control-widget\"},{\"id\": 5, \"icon\": \"fa-regular fa-display\", \"templateId\":\"display-control-widget\"},{\"id\": 6, \"icon\": \"fa-regular fa-meter-bolt\", \"templateId\":\"power-control-widget\"},{\"id\": 7, \"icon\": \"fa-regular fa-gear\", \"templateId\":\"settings-control-widget\"}]"
 		}
 	]
 }

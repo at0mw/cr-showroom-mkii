@@ -1,4 +1,10 @@
 {
   "cues": [],
-  "onStart": []
+  "onStart": [
+    {
+      "type": "s",
+      "state": "43", 
+      "value": "Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text Sample Text" 
+    }
+  ]
 }
