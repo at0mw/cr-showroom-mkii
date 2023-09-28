@@ -27,7 +27,9 @@ const surfaceMenuModule = (() => {
 		// 	'./app/project/components/widgets/surface-menu/surface-menu-emulator.json'
 		// );
 		// Uncomment the below line and comment the above to load the emulator all the time.
-		serviceModule.addEmulatorScenario('./app/project/components/widgets/main-surface/surface-menu/surface-menu-emulator.json');
+		serviceModule.addEmulatorScenario(
+			'./app/project/components/widgets/main-surface/surface-menu/surface-menu-emulator.json'
+		);
 	}
 
 	let selectedSurface;
@@ -251,7 +253,7 @@ const surfaceMenuModule = (() => {
 	}
 
 	const sourceSubscription = CrComLib.subscribeState('s', serialJoins.SurfaceConfigMessage, (receivedConfig) => {
-		console.log('Feedback CrComLib :::: Surface Menu ::: Receiving Surface Config :: Value: ', receivedConfig);
+		console.log('Feedback CrComLib :::: Surface Menu ::: Receiving Surface Config :: JsonConfig: ');//, receivedConfig);
 		//.updateSourceSelected(receivedConfig);
 		if (!receivedConfig) return;
 

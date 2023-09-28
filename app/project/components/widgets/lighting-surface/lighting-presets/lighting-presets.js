@@ -191,8 +191,8 @@ const lightingPresetsModule = (() => {
 
 	function parsePresetConfigJsonString(presetConfigJson) {
 		console.log(
-			'Feedback CrComLib :::: Shade Control ::: Receiving Preset Config Feedback :: Value: ',
-			presetConfigJson
+			'Feedback CrComLib :::: Lighting Control ::: Receiving Preset Config Feedback :: JsonConfig: ',
+			//presetConfigJson
 		);
 		if (presetConfigJson && presetConfigJson !== '') {
 			try {
@@ -211,7 +211,7 @@ const lightingPresetsModule = (() => {
 
 	// === Subscribe to Lighting Preset Feedback and Handle ===
 	const lightingPresetConfigSubscription = CrComLib.subscribeState('s', serialJoins.LightingPresetsConfig, (value) => {
-		console.log('Feedback CrComLib :::: String Join ', serialJoins.LightingPresetsConfig, ' ::: Value :: ', value);
+		console.log('Feedback CrComLib :::: Lighting Control ', serialJoins.LightingPresetsConfig, ' ::: JsonConfig :: ');//, value);
 		parsePresetConfigJsonString(value);
 	});
 

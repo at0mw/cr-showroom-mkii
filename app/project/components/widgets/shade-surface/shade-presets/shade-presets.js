@@ -12,51 +12,53 @@
 /*global serviceModule, CrComLib */
 
 const shadePresetsInstanceModule = (id, elementIds) => {
-    'use strict';    
+	'use strict';
 
-    // BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here  
-    // console.log(`shadePresets-widget shadePresetsInstanceModule("${id}", [${elementIds}])`);
+	// BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here
+	// console.log(`shadePresets-widget shadePresetsInstanceModule("${id}", [${elementIds}])`);
 
-    // choose one of the below 
-    // -- id is container element added around template content
-    // -- elementIds[0] is the first element found in the template content
-    // -- in shell template, elementIds[0] is usually the right choice
-    // const instance = document.getElementById(id);
-    const instance = document.getElementById(elementIds[0]);
+	// choose one of the below
+	// -- id is container element added around template content
+	// -- elementIds[0] is the first element found in the template content
+	// -- in shell template, elementIds[0] is usually the right choice
+	// const instance = document.getElementById(id);
+	const instance = document.getElementById(elementIds[0]);
 
-    // Your code for when widget instance removed from DOM here
-    const cleanup = () => {
-        // console.log(`shadePresets-widget shadePresetsInstanceModule cleanup("${id}")`);
-    };
+	// Your code for when widget instance removed from DOM here
+	const cleanup = () => {
+		// console.log(`shadePresets-widget shadePresetsInstanceModule cleanup("${id}")`);
+	};
 
-    // Your code changing public interface to instance module here 
-    return {
-        id,
-        elementIds,
-        instance,
-        cleanup
-    };
+	// Your code changing public interface to instance module here
+	return {
+		id,
+		elementIds,
+		instance,
+		cleanup
+	};
 
-    // END::CHANGEAREA  
-} 
+	// END::CHANGEAREA
+};
 
 const shadePresetsModule = (() => {
-    'use strict';
+	'use strict';
 
-    // BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here  
-   
-    const widgetInstances = {};
+	// BEGIN::CHANGEAREA - your initialization code for each instance of widget goes here
 
-    /**
+	const widgetInstances = {};
+
+	/**
      * Initialize Method
      */
-    function onInit() {
-    //    serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/shade-surface/shade-presets/shade-presets-emulator.json");
-       // Uncomment the below line and comment the above to load the emulator all the time.
-       serviceModule.addEmulatorScenario("./app/project/components/widgets/shade-surface/shade-presets/shade-presets-emulator.json");
-    }
+	function onInit() {
+		//    serviceModule.addEmulatorScenarioNoControlSystem("./app/project/components/widgets/shade-surface/shade-presets/shade-presets-emulator.json");
+		// Uncomment the below line and comment the above to load the emulator all the time.
+		serviceModule.addEmulatorScenario(
+			'./app/project/components/widgets/shade-surface/shade-presets/shade-presets-emulator.json'
+		);
+	}
 
-    function onAddition() {
+	function onAddition() {
 		const listBackButtonElement = document.getElementById(backButtonId);
 		const listForwardButtonElement = document.getElementById(forwardButtonId);
 		if (!presetManager) {
@@ -189,8 +191,8 @@ const shadePresetsModule = (() => {
 
 	function parsePresetConfigJsonString(presetConfigJson) {
 		console.log(
-			'Feedback CrComLib :::: Shade Control ::: Receiving Preset Config Feedback :: Value: ',
-			presetConfigJson
+			'Feedback CrComLib :::: Shade Control ::: Receiving Preset Config Feedback :: JsonConfig: ',
+			//presetConfigJson
 		);
 		if (presetConfigJson && presetConfigJson !== '') {
 			try {
@@ -208,49 +210,56 @@ const shadePresetsModule = (() => {
 	}
 
 	// === Subscribe to Shade Slider Preset Feedback and Handle ===
-	const shadePresetConfigSubscription = CrComLib.subscribeState('s', serialJoins.ShadeControlPresetConfig, (value) => {
-		console.log('Feedback CrComLib :::: String Join ', serialJoins.ShadeControlPresetConfig, ' ::: Value :: ', value);
-		parsePresetConfigJsonString(value);
-	});
+	const shadePresetConfigSubscription = CrComLib.subscribeState(
+		's',
+		serialJoins.ShadeControlPresetConfig,
+		(value) => {
+			console.log(
+				'Feedback CrComLib :::: String Join ',
+				serialJoins.ShadeControlPresetConfig,
+				' ::: JsonConfig :: ',
+				//value
+			);
+			parsePresetConfigJsonString(value);
+		}
+	);
 
-    /**
+	/**
      * private method for widget class creation
      */
-    let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:shadePresets-import-widget', (value) => {
-        if (value['loaded']) {
-            setTimeout(() => {
-                CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:shadePresets-import-page', loadedSubId);
-                loadedSubId = '';
-            });
-        }
-    });
+	let loadedSubId = CrComLib.subscribeState('o', 'ch5-import-htmlsnippet:shadePresets-import-widget', (value) => {
+		if (value['loaded']) {
+			setTimeout(() => {
+				CrComLib.unsubscribeState('o', 'ch5-import-htmlsnippet:shadePresets-import-page', loadedSubId);
+				loadedSubId = '';
+			});
+		}
+	});
 
-    /**
+	/**
      * private method for widget instance addition and removal
      */
-    CrComLib.subscribeState('o', 'ch5-template:shade-presets-widget', (value) => {
-        if (value['loaded'] !== undefined && value['id'] !== undefined) {
-            if (value.loaded) {
-                onInit();
-                onAddition();
-                widgetInstances[value.id] = shadePresetsInstanceModule(value.id, value['elementIds']);
-            }
-            else {
-                const removedInstance = widgetInstances[value.id];
-                if (removedInstance) {
-                    removedInstance.cleanup();
-                    delete widgetInstances[value.id];
-                }
-            }
-        }
-    });
-    /**
+	CrComLib.subscribeState('o', 'ch5-template:shade-presets-widget', (value) => {
+		if (value['loaded'] !== undefined && value['id'] !== undefined) {
+			if (value.loaded) {
+				onInit();
+				onAddition();
+				widgetInstances[value.id] = shadePresetsInstanceModule(value.id, value['elementIds']);
+			} else {
+				const removedInstance = widgetInstances[value.id];
+				if (removedInstance) {
+					removedInstance.cleanup();
+					delete widgetInstances[value.id];
+				}
+			}
+		}
+	});
+	/**
      * All public method and properties are exported here
      */
-    return {
-        widgetInstances
-    };
+	return {
+		widgetInstances
+	};
 
-    // END::CHANGEAREA   
-
+	// END::CHANGEAREA
 })();

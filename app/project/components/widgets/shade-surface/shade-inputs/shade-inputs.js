@@ -138,8 +138,8 @@ const shadeInputsModule = (() => {
 
 	function parseSliderConfigJsonString(sliderConfigJson) {
 		console.log(
-			'Feedback CrComLib :::: Shade Control ::: Receiving Slider Config Feedback :: Value: ',
-			sliderConfigJson
+			'Feedback CrComLib :::: Shade Control ::: Receiving Slider Config Feedback :: JsonConfig: ',
+			//sliderConfigJson
 		);
 		if (sliderConfigJson && sliderConfigJson !== '') {
 			try {

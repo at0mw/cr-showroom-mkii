@@ -211,8 +211,8 @@ const settingsDeviceStatusModule = (() => {
 		console.log(
 			'Feedback CrComLib :::: Settings Device ',
 			serialJoins.SettingsDeviceStatusConfig,
-			' ::: Value :: ',
-			value
+			' ::: JsonConfig :: ',
+			//value
 		);
 		parseStatusConfigJsonString(value);
 	});
@@ -221,8 +221,8 @@ const settingsDeviceStatusModule = (() => {
 		console.log(
 			'Feedback CrComLib :::: Settings Device ',
 			serialJoins.SettingsIpTableConfig,
-			' ::: Value :: ',
-			value
+			' ::: JsonConfig :: ',
+			//value
 		);
 		parseIpTableConfigJsonString(value);
 	});

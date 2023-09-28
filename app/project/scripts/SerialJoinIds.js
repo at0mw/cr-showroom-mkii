@@ -25,6 +25,8 @@ const serialJoins = (() => {
 	const SettingsIpTableConfig = "46";
 	const SettingsIpTableUpdate = "47";
 
+	const HomeControlConfig = "48";
+
 	// I think all one serial join for 1 unit (use json to flesh out actions instead)
 	return {
 		// Shade Control Module
@@ -51,6 +53,8 @@ const serialJoins = (() => {
 		SettingsDeviceStatusConfig,
 		SettingsDeviceStatusUpdate,
 		SettingsIpTableConfig,
-		SettingsIpTableUpdate
+		SettingsIpTableUpdate,
+
+		HomeControlConfig
 	};
 })();

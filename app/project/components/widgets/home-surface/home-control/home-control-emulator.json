@@ -1,4 +1,10 @@
 {
   "cues": [],
-  "onStart": []
+  "onStart": [
+    {
+      "type": "s", 
+      "state": "48", 
+      "value":"[{ \"id\": 1, \"label\": \"Room 1\", \"icon\": \"fa-regular fa-home\"},{ \"id\": 2, \"label\": \"Room 2\", \"icon\": \"fa-regular fa-home\"},{ \"id\": 3, \"label\": \"Room 3\", \"icon\": \"fa-regular fa-home\"}]"
+    }
+  ]
 }
